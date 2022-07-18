@@ -1,5 +1,5 @@
-from setuptools import find_packages, setup
 from typing import List
+from setuptools import find_packages, setup
 
 
 # Declaring variables for setup function
@@ -19,8 +19,9 @@ CLASSIFIERS = [
 
 def get_requirements_list() -> List[str]:
     '''
-    Description : This functio read the liberaries form requirements 
-    and gives the results in form of list of string
+    Description : This functio read the liberaries form requirements and 
+    gives the results in form of list of string
+
     Return :- returns the list of all liberaries
     '''
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
