@@ -1,0 +1,151 @@
+columns:
+  ID: int64
+  LIMIT_BAL: float64
+  SEX: int64
+  EDUCATION: int64
+  MARRIAGE: int64
+  AGE: int64
+  PAY_0: int64
+  PAY_2: int64
+  PAY_3: int64
+  PAY_4: int64
+  PAY_5: int64
+  PAY_6: int64
+  BILL_AMT1: float64
+  BILL_AMT2: float64
+  BILL_AMT3: float64
+  BILL_AMT4: float64
+  BILL_AMT5: float64
+  BILL_AMT6: float64
+  PAY_AMT1: float64
+  PAY_AMT2: float64
+  PAY_AMT3: float64
+  PAY_AMT4: float64
+  PAY_AMT5: float64
+  PAY_AMT6: float64
+  default.payment.next.month: int64
+
+numerical_columns:
+  - ID
+  - LIMIT_BAL
+  - AGE
+  - BILL_AMT1
+  - BILL_AMT2
+  - BILL_AMT3
+  - BILL_AMT4
+  - BILL_AMT5
+  - BILL_AMT6
+  - PAY_AMT1
+  - PAY_AMT2
+  - PAY_AMT3
+  - PAY_AMT4
+  - PAY_AMT5
+  - PAY_AMT6
+
+categorical_columns:
+  - SEX
+  - EDUCATION
+  - MARRIAGE
+  - AGE
+  - PAY_0
+  - PAY_2
+  - PAY_3
+  - PAY_4
+  - PAY_5
+  - PAY_6
+
+target_column: default.payment.next.month
+
+domain_value:
+  SEX:
+    - 1 [male]
+    - 2 [female]
+
+  EDUCATION:
+    - 1 [graduate school]
+    - 2 [university]
+    - 3 [high school]
+    - 4 [others]
+    - 5 [unknown]
+    - 6 [unknown]
+
+  MARRIAGE:
+    - 1 [married]
+    - 2 [single]
+    - 3 [others]
+
+  PAY_0:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  PAY_2:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  PAY_3:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  PAY_4:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  PAY_5:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  PAY_6:
+    - -1 [pay duly]
+    - -2 [payment delay for one month]
+    - 1 [payment delay for two month]
+    - 2 [payment delay for three month]
+    - 3 [payment delay for four month]
+    - 4 [payment delay for five month]
+    - 5 [payment delay for six month]
+    - 6 [payment delay for seven month]
+    - 7 [payment delay for eight month]
+    - 8 [payment delay for nine month or above]
+
+  Default:
+    - 0 [no]
+    - 1 [yes]
