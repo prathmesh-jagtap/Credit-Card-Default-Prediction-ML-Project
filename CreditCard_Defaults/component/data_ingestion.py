@@ -61,7 +61,7 @@ class DataIngestion:
 
             with tarfile.open(tgz_file_path) as default_tgz_file_obj:
                 default_tgz_file_obj.extractall(path=raw_data_dir)
-            logging.info(f"Extraction completed")
+            logging.info("Extraction completed")
 
         except Exception as error:
             raise DefaultException(error, sys) from error
