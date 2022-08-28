@@ -80,7 +80,7 @@ class DataIngestion:
                                       inplace=True)
             default_data_frame.drop(columns=['ID'], axis=1, inplace=True)
 
-            logging.info(f"Splitting data into train and test")
+            logging.info("Splitting data into train and test")
             strat_train_set = None
             strat_test_set = None
 
@@ -116,7 +116,7 @@ class DataIngestion:
             data_ingestion_artifact = DataIngestionArtifact(train_file_path=train_file_path,
                                                             test_file_path=test_file_path,
                                                             is_ingested=True,
-                                                            message=f"Data ingestion completed successfully."
+                                                            message="Data ingestion completed successfully."
                                                             )
             logging.info(
                 f"Data Ingestion artifact:[{data_ingestion_artifact}]")
