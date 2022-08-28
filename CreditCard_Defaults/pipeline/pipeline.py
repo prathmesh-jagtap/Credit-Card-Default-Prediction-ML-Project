@@ -25,7 +25,7 @@ from CreditCard_Defaults.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NA
 
 class Pipeline:
 
-    def __init__(self, config: Configuartion = Configuartion()) -> None:
+    def __init__(self, config: Configuration = Configuration()) -> None:
         try:
             self.config = config
 
