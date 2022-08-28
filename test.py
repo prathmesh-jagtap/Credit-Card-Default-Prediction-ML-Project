@@ -1,6 +1,7 @@
 import logging
 from CreditCard_Defaults.pipeline.pipeline import Pipeline
-from CreditCard_Defaults.exception import DefaultException
+# from CreditCard_Defaults.exception import DefaultException
+from CreditCard_Defaults.logger import logging
 
 
 def main():

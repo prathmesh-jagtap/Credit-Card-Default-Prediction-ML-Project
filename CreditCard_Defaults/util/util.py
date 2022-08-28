@@ -9,7 +9,7 @@ from CreditCard_Defaults.exception import DefaultException
 
 
 def write_yaml_file(file_path: str, data: dict = None):
-    """Creates yaml file 
+    """Creates yaml file
 
     Args:
         file_path (str): location of file in our directory
