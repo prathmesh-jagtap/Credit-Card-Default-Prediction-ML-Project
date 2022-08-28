@@ -1,7 +1,6 @@
 import sys
 import os
 import tarfile
-import numpy as np
 import pandas as pd
 from CreditCard_Defaults.exception import DefaultException
 from CreditCard_Defaults.logger import logging
