@@ -33,9 +33,9 @@ class DataIngestion:
 
             os.makedirs(tgz_download_dir, exist_ok=True)
 
-            housing_file_name = os.path.basename(download_url)
+            defaults_file_name = os.path.basename(download_url)
 
-            tgz_file_path = os.path.join(tgz_download_dir, housing_file_name)
+            tgz_file_path = os.path.join(tgz_download_dir, defaults_file_name)
 
             logging.info(
                 f"Downloading file from :[{download_url}] into :[{tgz_file_path}]")
