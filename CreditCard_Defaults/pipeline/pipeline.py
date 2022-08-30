@@ -15,11 +15,11 @@ from CreditCard_Defaults.entity.artifact_entity import ModelPusherArtifact, Data
 from CreditCard_Defaults.entity.artifact_entity import DataValidationArtifact, DataTransformationArtifact, ModelTrainerArtifact
 from CreditCard_Defaults.entity.config_entity import DataIngestionConfig, ModelEvaluationConfig
 from CreditCard_Defaults.component.data_ingestion import DataIngestion
-from CreditCard_Defaults.component.data_validation import DataValidation
-from CreditCard_Defaults.component.data_transformation import DataTransformation
-from CreditCard_Defaults.component.model_trainer import ModelTrainer
-from CreditCard_Defaults.component.model_evalution import ModelEvaluation
-from CreditCard_Defaults.component.model_pusher import ModelPusher
+# from CreditCard_Defaults.component.data_validation import DataValidation
+# from CreditCard_Defaults.component.data_transformation import DataTransformation
+# from CreditCard_Defaults.component.model_trainer import ModelTrainer
+# from CreditCard_Defaults.component.model_evalution import ModelEvaluation
+# from CreditCard_Defaults.component.model_pusher import ModelPusher
 from CreditCard_Defaults.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
 
 
