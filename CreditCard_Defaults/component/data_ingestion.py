@@ -1,6 +1,6 @@
 import sys
 import os
-import tarfile
+from zipfile import ZipFile
 import pandas as pd
 from CreditCard_Defaults.exception import DefaultException
 from CreditCard_Defaults.logger import logging
@@ -59,8 +59,8 @@ class DataIngestion:
             logging.info(
                 f"Extracting tgz file: [{tgz_file_path}] into dir: [{raw_data_dir}]")
 
-            with tarfile.open(tgz_file_path) as default_tgz_file_obj:
-                default_tgz_file_obj.extractall(path=raw_data_dir)
+            with ZipFile(tgz_file_path, mode='r') as default_zip_file_obj:
+                default_zip_file_obj.extractall(path=raw_data_dir)
             logging.info("Extraction completed")
 
         except Exception as error:
