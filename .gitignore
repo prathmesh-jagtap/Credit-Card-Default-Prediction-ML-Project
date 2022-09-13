@@ -2,10 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+saved_models/*
 # C extensions
 *.so
-
+CreditCard_Defaults/artifact
+dataset
+logs
 # Distribution / packaging
 .Python
 build/
