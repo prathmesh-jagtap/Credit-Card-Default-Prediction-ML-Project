@@ -1,11 +1,11 @@
 columns:
   ID: int64
   LIMIT_BAL: float64
-  SEX: int64
+  GENDER: int64
   EDUCATION: int64
   MARRIAGE: int64
   AGE: int64
-  PAY_0: int64
+  PAY_1: int64
   PAY_2: int64
   PAY_3: int64
   PAY_4: int64
@@ -23,7 +23,7 @@ columns:
   PAY_AMT4: float64
   PAY_AMT5: float64
   PAY_AMT6: float64
-  default.payment.next.month: int64
+  DEFAULTS: int64
 
 numerical_columns:
   - ID
@@ -43,7 +43,7 @@ numerical_columns:
   - PAY_AMT6
 
 categorical_columns:
-  - SEX
+  - GENDER
   - EDUCATION
   - MARRIAGE
   - AGE
@@ -54,7 +54,7 @@ categorical_columns:
   - PAY_5
   - PAY_6
 
-target_column: default.payment.next.month
+target_column: DEFAULT
 
 domain_value:
   SEX:
@@ -74,7 +74,7 @@ domain_value:
     - 2 [single]
     - 3 [others]
 
-  PAY_0:
+  PAY_1:
     - -1 [pay duly]
     - -2 [payment delay for one month]
     - 1 [payment delay for two month]
@@ -146,6 +146,6 @@ domain_value:
     - 7 [payment delay for eight month]
     - 8 [payment delay for nine month or above]
 
-  Default:
+  DEFAULT:
     - 0 [no]
     - 1 [yes]
