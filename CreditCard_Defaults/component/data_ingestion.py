@@ -76,7 +76,7 @@ class DataIngestion:
 
             logging.info(f"Reading csv file: [{defaults_file_path}]")
             default_data_frame = pd.read_csv(defaults_file_path)
-            default_data_frame.rename(columns={'PAY_0': 'PAY_1', 'SEX': 'GENDER', 'default.payment.next.month': 'DEFAULT'},
+            default_data_frame.rename(columns={'PAY_0': 'PAY_1', 'SEX': 'GENDER', 'default.payment.next.month': 'DEFAULTS'},
                                       inplace=True)
             default_data_frame.drop(columns=['ID'], axis=1, inplace=True)
 
@@ -87,11 +87,11 @@ class DataIngestion:
             split = StratifiedShuffleSplit(
                 n_splits=1, test_size=0.2, random_state=42)
 
-            for train_index, test_index in split.split(default_data_frame, default_data_frame["DEFAULT"]):
+            for train_index, test_index in split.split(default_data_frame, default_data_frame["DEFAULTS"]):
                 strat_train_set = default_data_frame.loc[train_index].drop(
-                    ["DEFAULT"], axis=1)
+                    ["DEFAULTS"], axis=1)
                 strat_test_set = default_data_frame.loc[test_index].drop(
-                    ["DEFAULT"], axis=1)
+                    ["DEFAULTS"], axis=1)
 
             train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir,
                                            file_name)
