@@ -80,11 +80,12 @@ class DataValidation:
                             to_replace=0, value=3, inplace=True)
                         df["EDUCATION"].replace(
                             to_replace=[0, 5, 6], value=4, inplace=True)
+                        logging.info("Data Cleaning Completed..")
                         validation_status = True
                     else:
                         validation_status = True
-            else:
-                validation_status = False
+                else:
+                    validation_status = False
             return validation_status
         except Exception as e:
             raise DefaultException(e, sys) from e
