@@ -28,7 +28,6 @@ drop:
   ID: int64
 
 numerical_columns:
-  - ID
   - LIMIT_BAL
   - AGE
   - BILL_AMT1
