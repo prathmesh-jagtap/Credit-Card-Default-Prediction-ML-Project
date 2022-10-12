@@ -1,7 +1,7 @@
 asttokens==2.0.8
 autopep8==1.7.0
 backcall==0.2.0
-certifi @ file:///C:/ci/certifi_1655907209390/work/certifi
+# certifi @ file:///C:/ci/certifi_1655907209390/work/certifi
 charset-normalizer==2.0.12
 click==8.1.3
 colorama==0.4.5
@@ -9,7 +9,7 @@ cycler==0.11.0
 dataclasses==0.6
 debugpy==1.6.3
 decorator==5.1.1
--e git+https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git@6c1364bf4f99a2781fb51eb83252cdae74a771a3#egg=default_predictor
+-e # git+https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git@6c1364bf4f99a2781fb51eb83252cdae74a771a3#egg=default_predictor
 dill==0.3.5.1
 entrypoints==0.4
 evidently==0.1.51.dev0
