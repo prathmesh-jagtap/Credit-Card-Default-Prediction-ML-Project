@@ -104,32 +104,60 @@ def predict():
     }
 
     if request.method == 'POST':
-        longitude = float(request.form['longitude'])
-        latitude = float(request.form['latitude'])
-        housing_median_age = float(request.form['housing_median_age'])
-        total_rooms = float(request.form['total_rooms'])
-        total_bedrooms = float(request.form['total_bedrooms'])
-        population = float(request.form['population'])
-        households = float(request.form['households'])
-        median_income = float(request.form['median_income'])
-        ocean_proximity = request.form['ocean_proximity']
+        LIMIT_BAL = float(request.form['LIMIT_BAL'])
+        GENDER = float(request.form['GENDER'])
+        EDUCATION = float(request.form['EDUCATION'])
+        MARRIAGE = float(request.form['MARRIAGE'])
+        AGE = int(request.form['AGE'])
+        PAY_1 = float(request.form['PAY_1'])
+        PAY_2 = float(request.form['PAY_2'])
+        PAY_3 = float(request.form['PAY_3'])
+        PAY_4 = float(request.form['PAY_4'])
+        PAY_5 = float(request.form['PAY_5'])
+        PAY_6 = float(request.form['PAY_6'])
+        BILL_AMT1 = float(request.form['BILL_AMT1'])
+        BILL_AMT2 = float(request.form['BILL_AMT2'])
+        BILL_AMT3 = float(request.form['BILL_AMT3'])
+        BILL_AMT4 = float(request.form['BILL_AMT4'])
+        BILL_AMT5 = float(request.form['BILL_AMT5'])
+        BILL_AMT6 = float(request.form['BILL_AMT6'])
+        PAY_AMT1 = float(request.form['PAY_AMT1'])
+        PAY_AMT2 = float(request.form['PAY_AMT2'])
+        PAY_AMT3 = float(request.form['PAY_AMT3'])
+        PAY_AMT4 = float(request.form['PAY_AMT4'])
+        PAY_AMT5 = float(request.form['PAY_AMT5'])
+        PAY_AMT6 = float(request.form['PAY_AMT6'])
 
-        housing_data = CreditCardData(longitude=longitude,
-                                      latitude=latitude,
-                                      housing_median_age=housing_median_age,
-                                      total_rooms=total_rooms,
-                                      total_bedrooms=total_bedrooms,
-                                      population=population,
-                                      households=households,
-                                      median_income=median_income,
-                                      ocean_proximity=ocean_proximity,
-                                      )
-        housing_df = housing_data.get_housing_input_data_frame()
-        housing_predictor = CreditPredictor(model_dir=MODEL_DIR)
-        median_housing_value = housing_predictor.predict(X=housing_df)
+        creditcard_data = CreditCardData(LIMIT_BAL=LIMIT_BAL,
+                                         GENDER=GENDER,
+                                         EDUCATION=EDUCATION,
+                                         MARRIAGE=MARRIAGE,
+                                         AGE=AGE,
+                                         PAY_1=PAY_1,
+                                         PAY_2=PAY_2,
+                                         PAY_3=PAY_3,
+                                         PAY_4=PAY_4,
+                                         PAY_5=PAY_5,
+                                         PAY_6=PAY_6,
+                                         BILL_AMT1=BILL_AMT1,
+                                         BILL_AMT2=BILL_AMT2,
+                                         BILL_AMT3=BILL_AMT3,
+                                         BILL_AMT4=BILL_AMT4,
+                                         BILL_AMT5=BILL_AMT5,
+                                         BILL_AMT6=BILL_AMT6,
+                                         PAY_AMT1=PAY_AMT1,
+                                         PAY_AMT2=PAY_AMT2,
+                                         PAY_AMT3=PAY_AMT3,
+                                         PAY_AMT4=PAY_AMT4,
+                                         PAY_AMT5=PAY_AMT5,
+                                         PAY_AMT6=PAY_AMT6,
+                                         )
+        creditcard_df = creditcard_data.get_credit_input_data_frame()
+        creditcard_predictor = CreditPredictor(model_dir=MODEL_DIR)
+        creditcard_default = creditcard_predictor.predict(X=creditcard_df)
         context = {
-            CREDIT_CARD_DATA_KEY: housing_data.get_housing_data_as_dict(),
-            CREDIT_CARD_DEFAULTS_VALUE_KEY: median_housing_value,
+            CREDIT_CARD_DATA_KEY: creditcard_data.get_credit_data_as_dict(),
+            CREDIT_CARD_DEFAULTS_VALUE_KEY: creditcard_default,
         }
         return render_template('predict.html', context=context)
     return render_template("predict.html", context=context)
