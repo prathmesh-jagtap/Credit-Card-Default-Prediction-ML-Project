@@ -80,6 +80,10 @@ class DataIngestion:
                                       inplace=True)
             default_data_frame.drop(columns=['ID'], axis=1, inplace=True)
 
+            if default_data_frame['GENDER'].dtypes == "O":
+                default_data_frame['GENDER'].replace(
+                    {'Male': 1, 'Female': 2}, inplace=True)
+
             logging.info("Splitting data into train and test")
             strat_train_set = None
             strat_test_set = None
