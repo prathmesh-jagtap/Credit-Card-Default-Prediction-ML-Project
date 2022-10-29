@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg fill="none" height="100" width="180" viewBox="0 -9.122 354.834 225.951" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <pattern x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse" viewBox="0 0 100 100" id="pattern-0">
+      <rect x="0" y="0" width="50" height="100" style="fill: black;"/>
+    </pattern>
+    <pattern id="pattern-0-0" patternTransform="matrix(0.796337, 0, 0, 0.798034, 214.647064, 26.459566)" xlink:href="#pattern-0"/>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="243.271" cy="203.525" r="154.783" id="gradient-5">
+      <stop offset="0" style="stop-color: rgba(48, 86, 211, 1)"/>
+      <stop offset="1" style="stop-color: rgba(28, 51, 130, 1)"/>
+    </radialGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="61.915" cy="144.483" r="15.535" id="gradient-3">
+      <stop offset="0" style="stop-color: rgba(48, 86, 211, 1)"/>
+      <stop offset="1" style="stop-color: rgba(28, 51, 130, 1)"/>
+    </radialGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="527.68" cy="533.419" r="34" id="gradient-1">
+      <stop offset="0" style="stop-color: rgba(48, 86, 211, 1)"/>
+      <stop offset="1" style="stop-color: rgba(28, 51, 130, 1)"/>
+    </radialGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="243.271" y1="121.437" x2="243.271" y2="285.613" id="gradient-0">
+      <stop offset="0" style="stop-color: rgba(255, 255, 255, 1)"/>
+      <stop offset="1" style="stop-color: rgba(204, 204, 204, 1)"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="243.455" y1="121.344" x2="243.455" y2="285.396" id="gradient-2">
+      <stop offset="0" style="stop-color: rgba(48, 86, 211, 1)"/>
+      <stop offset="1" style="stop-color: rgba(28, 51, 130, 1)"/>
+    </linearGradient>
+  </defs>
+  <rect style="stroke-linejoin: bevel; vector-effect: non-scaling-stroke; stroke-opacity: 0.85; stroke-width: 4px; fill: url(#gradient-5); stroke: url(#gradient-0);" transform="matrix(0.993288, -0.115671, 0.128583, 0.991784, -103.508842, -72.39608)" x="88.488" y="121.437" width="309.565" height="164.176" rx="25" ry="25" bx:origin="0.584775 0.520578"/>
+  <rect style="paint-order: fill; fill: rgb(255, 255, 255); stroke: url(#gradient-2);" transform="matrix(1, -0.000083, 0.00009, 1, -59.500809, -73.241119)" x="88.555" y="121.344" width="309.799" height="164.052" rx="25" ry="25" bx:origin="0.497129 0.428643"/>
+  <path style="fill: rgb(216, 216, 216); vector-effect: non-scaling-stroke; stroke-width: 4px; stroke: rgb(48, 86, 211);" d="M 29.47 81.631 L 333.531 82.278 L 336.853 82.312"/>
+  <path style="fill: rgb(216, 216, 216); vector-effect: non-scaling-stroke; stroke-width: 4px; stroke: rgb(48, 86, 211);" d="M 30.358 116.203 C 24.99 116.203 332.486 116.204 334.419 116.204 L 337.742 116.204"/>
+  <circle style="stroke: rgb(48, 86, 211); stroke-width: 0px; fill: url(#gradient-1);" transform="matrix(0.718186, 0, 0, 0.59057, -87.594048, -145.300003)" cx="527.68" cy="533.419" r="34"/>
+  <rect style="stroke: rgb(48, 86, 211); fill: url(#gradient-3);" x="46.38" y="131.863" width="31.069" height="25.239" rx="5" ry="5"/>
+  <path style="vector-effect: non-scaling-stroke; stroke-width: 4px; fill: rgb(48, 86, 211); stroke: rgb(48, 86, 211);" d="M 61.447 182.746 C 59.037 182.746 197.018 182.099 197.885 182.099 L 199.376 182.067"/>
+  <polyline style="stroke-width: 4px; vector-effect: non-scaling-stroke; fill: url(#pattern-0-0); stroke: rgb(255, 255, 255);" points="140.071 47.734 221.96 36.789 309.131 25.136"/>
+  <line style="fill: rgb(216, 216, 216); stroke-width: 4px; vector-effect: non-scaling-stroke; stroke: rgb(255, 255, 255);" x1="3.615" y1="72.101" x2="28.034" y2="68.698"/>
+  <line style="fill: rgb(216, 216, 216); stroke-width: 4px; vector-effect: non-scaling-stroke; stroke: rgb(247, 247, 247);" x1="8.643" y1="99.328" x2="28.752" y2="95.925"/>
+</svg>

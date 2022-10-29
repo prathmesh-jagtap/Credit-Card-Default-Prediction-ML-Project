@@ -1,0 +1,74 @@
+/*
+.trigger{
+    text-align: center;
+    padding: 7px 13px;
+    background: #3e3e3e;
+    color: #FFFFFF;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+}
+*/
+
+.modall {
+    position: fixed;
+    left: 0;
+    top: 0;
+	width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.51);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+	z-index: 1010;
+}
+
+.modall-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+	border: outset;
+	border-color: #6897EA;
+}
+
+.modell-header{
+	margin-top: 1.2px;
+	border-bottom: double;
+	border-bottom-color: #1B58C2;
+	font-size: 28px;
+	color: #051229;
+}
+.close-button {
+    float: right;
+    width: 2rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+	font-size: 15px;
+    
+}
+
+.close-button:hover {
+    text-decoration-color: #020A17;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.show-modall {
+    opacity: 2;
+    visibility: visible;
+    transform: scale(1);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+@media (max-width: 547px){
+}
