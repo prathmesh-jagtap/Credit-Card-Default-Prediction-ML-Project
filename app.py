@@ -27,10 +27,10 @@ CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 app = Flask(__name__)
 
 
-@app.route("/artifact", defaults={'req_path': 'CreditCard_Defaults'})
+@app.route("/artifact", defaults={'req_path': PIPELINE_FOLDER_NAME})
 @app.route('/artifact/<path:req_path>')
 def render_artifact_dir(req_path):
-    makedirs('CreditCard_Defaults', exist_ok=True)
+    makedirs(PIPELINE_FOLDER_NAME, exist_ok=True)
     # joining the base and reqested path
     print(f"req_path : {req_path}")
     abs_path = path.join(req_path)
