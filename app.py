@@ -24,38 +24,38 @@ CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 app = Flask(__name__)
 
 
-# @app.route("/artifact", defaults={'req_path': "CreditCard_Defaults"})
-# @app.route('/artifact/<path:req_path>')
-# def render_artifact_dir(req_path):
-#     makedirs("CreditCard_Defaults", exist_ok=True)
-#     # joining the base and reqested path
-#     print(f"req_path : {req_path}")
-#     abs_path = path.join(req_path)
-#     print(abs_path)
-#     # return 404 if path doesn't exist
-#     if not path.exists(abs_path):
-#         return abort(404)
+@app.route("/artifact", defaults={'req_path': "CreditCard_Defaults"})
+@app.route('/artifact/<path:req_path>')
+def render_artifact_dir(req_path):
+    makedirs("CreditCard_Defaults", exist_ok=True)
+    # joining the base and reqested path
+    print(f"req_path : {req_path}")
+    abs_path = path.join(req_path)
+    print(abs_path)
+    # return 404 if path doesn't exist
+    if not path.exists(abs_path):
+        return abort(404)
 
-#     # check if path is a file and serve
-#     if path.isfile(abs_path):
-#         if ".html" in abs_path:
-#             with open(abs_path, 'r', encoding="utf-8") as file:
-#                 context = ''
-#                 for line in file.readlines():
-#                     context = f"{context}{line}"
-#                 return context
-#         return send_file(abs_path)
+    # check if path is a file and serve
+    if path.isfile(abs_path):
+        if ".html" in abs_path:
+            with open(abs_path, 'r', encoding="utf-8") as file:
+                context = ''
+                for line in file.readlines():
+                    context = f"{context}{line}"
+                return context
+        return send_file(abs_path)
 
-#     # Showing directory contexts
-#     files = {path.join(abs_path, file_name): file_name for file_name in listdir(abs_path)
-#              if "artifact" in path.join(abs_path, file_name)}
+    # Showing directory contexts
+    files = {path.join(abs_path, file_name): file_name for file_name in listdir(abs_path)
+             if "artifact" in path.join(abs_path, file_name)}
 
-#     result = {
-#         "files": files,
-#         "parent_folder": path.dirname(abs_path),
-#         "parent_label": abs_path
-#     }
-#     return render_template('files.html', result=result)
+    result = {
+        "files": files,
+        "parent_folder": path.dirname(abs_path),
+        "parent_label": abs_path
+    }
+    return render_template('files.html', result=result)
 
 
 @app.route('/', methods=["GET", "POST"])
