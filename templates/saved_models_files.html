@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
 {% extends "index.html" %}
-{% block model1 %}
-<div id="model1" class="modall">
+{% block model3 %}
+<div id="model3" class="modall">
       <div class="modall-content">
-        <a href="{{url_for('index')}}" id="close" class="close-button">×</a>
-        <h2 class="modell-header">Atrifacts</h2>
-        {% if "CreditCard_Defaults" in result['parent_folder'] %}
-        <a href="/artifact/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+        <span id="close3" class="close-button">×</span>
+        <h2 class="modell-header">Trained Models</h2>
+        {% if "saved_models" in result['parent_folder'] %}
+        <a href="/saved_models/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
 
         <h4 style="text-align:center;">
           {{result['parent_label']}}
@@ -15,9 +15,10 @@
         {% endif %}
 
         <div class="row">
-          {% for href, label in result["files"].items() %}
+          {% for href,label in result["files"].items() %}
           <div class="col-md-2 text-center">
-            <a href="/artifact/{{href}}" style="text-decoration: none;">
+            <a href="/saved_models/{{href}}" style="text-decoration: none;">
+
               <i class="fa {% if '.' in label %} fa-file {% else %} fa-folder {% endif %} fa-8x" aria-hidden="true"></i>
               <br>{{ label }}
               {% if '.' in label %}
@@ -26,9 +27,11 @@
             </a>
           </div>
           {% endfor %}
+
         </div>
       </div>
 </div>
+
 {% endblock %}
 
 {% block script %}

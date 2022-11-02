@@ -265,64 +265,9 @@
     <!-- ====== Features Popup Start ====== -->
     {% block model1 %} {% endblock %}
 
-    <div id="model2" class="modall">
-      <div class="modall-content">
-        <span id="close2" class="close-button">×</span>
-        <h2 class="modell-header">Logs</h2>
-        {% if "logs" in result['parent_folder'] %}
-        <a href="/logs/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
-
-        <h4 style="text-align:center;">
-          {{result['parent_label']}}
-        </h4>
-        {% endif %}
-
-        <div class="row">
-          {% for href,label in result["files"].items() %}
-          <div class="col-md-2 text-center">
-            <a href="/logs/{{href}}" style="text-decoration: none;">
-
-              <i class="fa {% if '.' in label %} fa-file {% else %} fa-folder {% endif %} fa-8x" aria-hidden="true"></i>
-              <br>{{ label }}
-              {% if '.' in label %}
-              <i class="fa fa-download" aria-hidden="true"></i>
-              {% endif %}
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
-    <div id="model3" class="modall">
-      <div class="modall-content">
-        <span id="close3" class="close-button">×</span>
-        <h2 class="modell-header">Trained Models</h2>
-        {% if "saved_models" in result['parent_folder'] %}
-        <a href="/saved_models/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
-
-        <h4 style="text-align:center;">
-          {{result['parent_label']}}
-        </h4>
-        {% endif %}
-
-        <div class="row">
-          {% for href,label in result["files"].items() %}
-          <div class="col-md-2 text-center">
-            <a href="/saved_models/{{href}}" style="text-decoration: none;">
-
-              <i class="fa {% if '.' in label %} fa-file {% else %} fa-folder {% endif %} fa-8x" aria-hidden="true"></i>
-              <br>{{ label }}
-              {% if '.' in label %}
-              <i class="fa fa-download" aria-hidden="true"></i>
-              {% endif %}
-            </a>
-          </div>
-          {% endfor %}
-
-        </div>
-      </div>
-    </div>
+    {% block model2 %} {% endblock %}
+	  
+	{% block model3 %} {% endblock %}
     <!-- ====== Features Popup End Start ====== -->
 
     <!-- ====== About Start ====== -->
