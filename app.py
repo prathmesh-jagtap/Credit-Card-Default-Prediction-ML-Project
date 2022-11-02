@@ -24,8 +24,8 @@ CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 app = Flask(__name__)
 
 
-@app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'})
-@app.route('/artifact/<path:req_path>')
+@app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'}, methods=['POST', 'GET'])
+@app.route('/artifact/<path:req_path>', methods=['POST', 'GET'])
 def render_artifact_dir(req_path):
     makedirs(PIPELINE_FOLDER_NAME, exist_ok=True)
     # joining the base and reqested path
@@ -160,8 +160,8 @@ def predict():
     return render_template("predict.html", context=context)
 
 
-@app.route('/saved_models', defaults={'req_path': 'saved_models'})
-@app.route('/saved_models/<path:req_path>')
+@app.route('/saved_models', defaults={'req_path': 'saved_models'}, methods=['POST', 'GET'])
+@app.route('/saved_models/<path:req_path>', methods=['POST', 'GET'])
 def saved_models_dir(req_path):
     makedirs("saved_models", exist_ok=True)
     # Joining the base and the requested path
@@ -207,7 +207,7 @@ def update_model_config():
         return str(e)
 
 
-@app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'})
+@app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'}, methods=['POST', 'GET'])
 @app.route(f'/{LOG_FOLDER_NAME}/<path:req_path>')
 def render_log_dir(req_path):
     makedirs(LOG_FOLDER_NAME, exist_ok=True)
