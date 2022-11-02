@@ -1,6 +1,4 @@
-from msilib import schema
 import os
-import re
 import sys
 import json
 import pandas as pd

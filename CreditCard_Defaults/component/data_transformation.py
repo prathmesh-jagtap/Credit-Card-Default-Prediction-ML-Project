@@ -1,7 +1,6 @@
 import sys
 import os
 import numpy as np
-from cgi import test
 import pandas as pd
 from sklearn import preprocessing
 from sklearn.base import BaseEstimator, TransformerMixin
