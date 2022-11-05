@@ -4,7 +4,7 @@
 {% block model3 %}
 <div id="model3" class="modall">
       <div class="modall-content">
-        <span id="close3" class="close-button">×</span>
+        <a href="{{url_for('index')}}" id="close" class="close-button">×</a>
         <h2 class="modell-header">Trained Models</h2>
         {% if "saved_models" in result['parent_folder'] %}
         <a href="/saved_models/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
@@ -35,5 +35,5 @@
 {% endblock %}
 
 {% block script %}
-<script src="static/js/popup.js"></script>
+<script src="../static/js/popup.js"></script>
 {% endblock %}

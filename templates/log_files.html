@@ -4,7 +4,7 @@
 {% block model2 %}
 <div id="model2" class="modall">
       <div class="modall-content">
-        <span id="close2" class="close-button">×</span>
+        <a href="{{url_for('index')}}" id="close" class="close-button">×</a>
         <h2 class="modell-header">Logs</h2>
         {% if "logs" in result['parent_folder'] %}
         <a href="/logs/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
