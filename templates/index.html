@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
     <title>CREDIT CARD DEFAULT PREDICTION</title>
 
     <!-- Primary Meta Tags -->
@@ -46,6 +47,7 @@
 @media (max-width: 567px){
 }
     </style>
+	{% block head %}{% endblock %}
   </head>
   <body>
     <!-- ====== Header Start ====== -->
@@ -265,14 +267,6 @@
       </div>
     </section>
     <!-- ====== Features End ====== -->
-
-    <!-- ====== Features Popup Start ====== -->
-    {% block model1 %} {% endblock model1 %}
-
-    {% block model2 %} {% endblock model2 %}
-	  
-	{% block model3 %} {% endblock model3 %}
-    <!-- ====== Features Popup End Start ====== -->
 
     <!-- ====== About Start ====== -->
     <section id="about" class="ud-about">
@@ -953,7 +947,9 @@
       </div>
     </section>
     <!-- ====== Contact End ====== -->
+{% block content %}
 
+{% endblock %}
     <!-- ====== Footer Start ====== -->
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
       <div class="shape shape-1">
@@ -1144,9 +1140,7 @@
     <script src="../static/js/wow.min.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/text_animation.js"></script>
-	  
-	{% block script %} {% endblock %}
-    <script>
+	      <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
 
