@@ -24,7 +24,7 @@ CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 app = Flask(__name__)
 
 
-@app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'}, methods=['POST', 'GET'])
+@app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'})
 @app.route('/artifact/<path:req_path>', methods=['POST', 'GET'])
 def render_artifact_dir(req_path):
     makedirs(PIPELINE_FOLDER_NAME, exist_ok=True)
