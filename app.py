@@ -34,7 +34,7 @@ def render_artifact_dir(req_path):
     print(abs_path)
     # return 404 if path doesn't exist
     if not path.exists(abs_path):
-        return abort(404)
+        return render_template("404.html")
 
     # check if path is a file and serve
     if path.isfile(abs_path):
@@ -170,7 +170,7 @@ def saved_models_dir(req_path):
     print(abs_path)
     # Return 404 if path doesn't exist
     if not path.exists(abs_path):
-        return abort(404)
+        return render_template("404.html")
 
     # Check if path is a file and serve
     if path.isfile(abs_path):
@@ -217,7 +217,7 @@ def render_log_dir(req_path):
     print(abs_path)
     # Return 404 if path doesn't exist
     if not path.exists(abs_path):
-        return abort(404)
+        return render_template("404.html")
 
     # Check if path is a file and serve
     if path.isfile(abs_path):

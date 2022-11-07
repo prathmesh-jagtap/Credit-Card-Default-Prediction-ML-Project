@@ -133,6 +133,7 @@
       <div class="container">
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
+	{% block content %}
         {% if "logs" in result['parent_folder'] %}
         <a href="/logs/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
 
@@ -155,7 +156,7 @@
           </div>
           {% endfor %}
         </div>
-		  {% block content %} {% endblock %}
+		  {% endblock %}
 			</div>
 		  </div>
 		</div>
