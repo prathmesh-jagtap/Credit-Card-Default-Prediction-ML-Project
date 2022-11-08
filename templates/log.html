@@ -134,7 +134,12 @@
       <div class="container">
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
-			  
+			  <div class="row">
+
+    <div class="col-md-12 " style="margin-bottom:20px;height:500px;overflow:scroll">
+        {{ context['log']|safe }}
+    </div>
+</div>
 			</div>
 		  </div>
 		</div>
@@ -380,12 +385,3 @@
 </html>
 
  
-
-<div class="row">
-
-    <div class="col-md-12 " style="margin-bottom:20px;height:500px;overflow:scroll">
-        {{ context['log']|safe }}
-    </div>
-</div>
-
-{% endblock %}
