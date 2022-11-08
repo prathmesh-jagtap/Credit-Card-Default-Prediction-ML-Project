@@ -133,15 +133,15 @@
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
         {% if "logs" in result['parent_folder'] %}
-        <a href="/logs/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+        <a href="/logs/{{ result['parent_folder'] }}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
 
         <h4 style="text-align:center;">
-          {{result['parent_label']}}
+          {{ result['parent_label'] }}
         </h4>
         {% endif %}
 
         <div class="row">
-          {% for href,label in result["files"].items() %}
+          {% for href, slabel in result["files"].items() %}
           <div class="col-md-2 text-center">
             <a href="/logs/{{ href }}" style="text-decoration: none;">
 
