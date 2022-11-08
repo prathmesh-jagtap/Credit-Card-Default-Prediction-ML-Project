@@ -132,6 +132,7 @@
       <div class="container">
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
+			 <div class="ud-about-content">
 			  <span class="tag">Artifacts</span><br>
 			  {% if "CreditCard_Defaults" in result['parent_folder'] %}
 			  <a href="/artifact/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
@@ -153,6 +154,7 @@
 				  </div>
 				  {% endfor %}
 			  </div>
+			</div>
 			</div>
 		  </div>
 		</div>
