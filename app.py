@@ -86,6 +86,8 @@ def train():
     else:
         message = "Training is already in progress."
 
+    message = "Training Completed!!"
+
     context = {
         "experiment": pipeline.get_experiments_status().to_html(classes="table table-stripod col-12"),
         "message": message
@@ -125,35 +127,35 @@ def predict():
         PAY_AMT5 = float(request.form['PAY_AMT5'])
         PAY_AMT6 = float(request.form['PAY_AMT6'])
 
-        creditcard_data = CreditCardData(LIMIT_BAL=LIMIT_BAL,
-                                         GENDER=GENDER,
-                                         EDUCATION=EDUCATION,
-                                         MARRIAGE=MARRIAGE,
-                                         AGE=AGE,
-                                         PAY_1=PAY_1,
-                                         PAY_2=PAY_2,
-                                         PAY_3=PAY_3,
-                                         PAY_4=PAY_4,
-                                         PAY_5=PAY_5,
-                                         PAY_6=PAY_6,
-                                         BILL_AMT1=BILL_AMT1,
-                                         BILL_AMT2=BILL_AMT2,
-                                         BILL_AMT3=BILL_AMT3,
-                                         BILL_AMT4=BILL_AMT4,
-                                         BILL_AMT5=BILL_AMT5,
-                                         BILL_AMT6=BILL_AMT6,
-                                         PAY_AMT1=PAY_AMT1,
-                                         PAY_AMT2=PAY_AMT2,
-                                         PAY_AMT3=PAY_AMT3,
-                                         PAY_AMT4=PAY_AMT4,
-                                         PAY_AMT5=PAY_AMT5,
-                                         PAY_AMT6=PAY_AMT6,
-                                         )
-        creditcard_df = creditcard_data.get_credit_input_data_frame()
+        CreditCard_Defaults_data = CreditCardData(LIMIT_BAL=LIMIT_BAL,
+                                                  GENDER=GENDER,
+                                                  EDUCATION=EDUCATION,
+                                                  MARRIAGE=MARRIAGE,
+                                                  AGE=AGE,
+                                                  PAY_1=PAY_1,
+                                                  PAY_2=PAY_2,
+                                                  PAY_3=PAY_3,
+                                                  PAY_4=PAY_4,
+                                                  PAY_5=PAY_5,
+                                                  PAY_6=PAY_6,
+                                                  BILL_AMT1=BILL_AMT1,
+                                                  BILL_AMT2=BILL_AMT2,
+                                                  BILL_AMT3=BILL_AMT3,
+                                                  BILL_AMT4=BILL_AMT4,
+                                                  BILL_AMT5=BILL_AMT5,
+                                                  BILL_AMT6=BILL_AMT6,
+                                                  PAY_AMT1=PAY_AMT1,
+                                                  PAY_AMT2=PAY_AMT2,
+                                                  PAY_AMT3=PAY_AMT3,
+                                                  PAY_AMT4=PAY_AMT4,
+                                                  PAY_AMT5=PAY_AMT5,
+                                                  PAY_AMT6=PAY_AMT6,
+                                                  )
+        creditcard_df = CreditCard_Defaults_data.get_credit_input_data_frame()
         creditcard_predictor = CreditPredictor(model_dir=MODEL_DIR)
         creditcard_default = creditcard_predictor.predict(X=creditcard_df)
         context = {
-            CREDIT_CARD_DATA_KEY: creditcard_data.get_credit_data_as_dict(),
+            CREDIT_CARD_DATA_KEY: CreditCard_Defaults_data.get_credit_data_as_dict(),
             CREDIT_CARD_DEFAULTS_VALUE_KEY: creditcard_default,
         }
         return render_template('predict.html', context=context)
