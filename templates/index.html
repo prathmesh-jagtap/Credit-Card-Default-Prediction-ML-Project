@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-    <title>CREDIT CARD DEFAULT PREDICTION</title>
+    {% block title %}<title>CREDIT CARD DEFAULT PREDICTION</title>{% endblock %}
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="CREDIT CARD DEFAULT PREDICTION">
@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="../static/css/pop.css" />
 	<link rel="stylesheet" href="../static/css/predict.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 	<style type="text/css">
 @media (max-width: 567px){
 }
@@ -131,9 +133,9 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <button class="ud-main-btn ud-login-btn" type="button" data-toggle="modal" data-target="#myModal"><a href="/predict">
+                <a href="/predict" class="ud-main-btn ud-login-btn" data-toggle="modal" data-target="#myModal">
                   Know Defaulter
-                </a></button>
+                </a>
                 <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
                   Sign Up
                 </a>
@@ -144,7 +146,11 @@
       </div>
     </header>	
     <!-- ====== Header End ====== -->
-
+	  
+    <!-- ====== Predict Popup ====== -->
+	  {% block model %} {% endblock %}
+	<!-- ====== Predict Popup ====== -->
+	  
     <!-- ====== Hero Start ====== -->
     <section class="ud-hero" id="home">
       <div class="container">
@@ -1143,7 +1149,7 @@
     <script src="../static/js/wow.min.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/text_animation.js"></script>
-	 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 {% block script %} {% endblock %}
 	      <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
