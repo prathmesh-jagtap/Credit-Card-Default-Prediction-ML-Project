@@ -31,6 +31,7 @@ app = Flask(__name__)
 @app.route('/artifact/<path:req_path>', methods=['POST', 'GET'])
 def render_artifact_dir(req_path):
     makedirs(PIPELINE_FOLDER_NAME, exist_ok=True)
+
     # joining the base and reqested path
     print(f"req_path : {req_path}")
     abs_path = path.join(req_path)
