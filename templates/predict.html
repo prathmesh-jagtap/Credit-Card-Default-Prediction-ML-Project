@@ -10,376 +10,378 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
         <link rel="stylesheet" href="../static/css/predict.css" />
+		<link rel="stylesheet" href="../static/css/ud-styles.css" />
     </head>
-<body>
-     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="modal-box">
+    <body>
+         <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal-box">
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content clearfix">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <div class="modal-body">
-                                    <form action="/predict" method="post">
-                                        <h3 class="title">Credit Card Default Estimation</h3>
-                                        <br>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="LIMIT_BAL" placeholder="Balance Limit">
-                                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content clearfix">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <div class="modal-body">
+                                        <form action="/predict" method="post">
+                                            <h3 class="title">Credit Card Default Estimation</h3>
+                                            <br>
+                                            <div class="ud-form-group">
+                                                <input type="text" class="form-control" name="LIMIT_BAL" placeholder="Balance Limit">
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="GENDER" placeholder="Gender" required>
-                                                 <option>
-                                                     Gender
-                                                 </option>
-                                                 <option value="1">
-                                                     Male
-                                                 </option>
-                                                 <option value="2">
-                                                     Female
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="GENDER" placeholder="Gender" required>
+                                                     <option>
+                                                         Gender
+                                                     </option>
+                                                     <option value="1">
+                                                         Male
+                                                     </option>
+                                                     <option value="2">
+                                                         Female
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="EDUCATION" placeholder="Education" required>
-                                                 <option>
-                                                    Education
-                                                 </option>
-                                                 <option value="1">
-                                                     Graduate
-                                                 </option>
-                                                 <option value="2">
-                                                     University
-                                                 </option>
-                                                 <option value="3">
-                                                     High School
-                                                 </option>
-                                                 <option value="4">
-                                                     Others
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="EDUCATION" placeholder="Education" required>
+                                                     <option>
+                                                        Education
+                                                     </option>
+                                                     <option value="1">
+                                                         Graduate
+                                                     </option>
+                                                     <option value="2">
+                                                         University
+                                                     </option>
+                                                     <option value="3">
+                                                         High School
+                                                     </option>
+                                                     <option value="4">
+                                                         Others
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="MARRIAGE" placeholder="Marriage" required>
-                                                 <option>
-                                                    Marriage
-                                                 </option>
-                                                 <option value="1">
-                                                     Married
-                                                 </option>
-                                                 <option value="2">
-                                                     Single
-                                                 </option>
-                                                 <option value="3">
-                                                     Others
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="MARRIAGE" placeholder="Marriage" required>
+                                                     <option>
+                                                        Marriage
+                                                     </option>
+                                                     <option value="1">
+                                                         Married
+                                                     </option>
+                                                     <option value="2">
+                                                         Single
+                                                     </option>
+                                                     <option value="3">
+                                                         Others
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="AGE" placeholder="Age">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="AGE" placeholder="Age">
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_1" placeholder="Repayment status in First month" >
-                                                 <option>
-                                                     Repayment status in First month
-                                                 </option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_1" placeholder="Repayment status in First month" >
+                                                     <option>
+                                                         Repayment status in First month
+                                                     </option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_2" placeholder="Repayment status in Second month" >
-                                                 <option>
-                                                    Repayment status in Seocond month
-                                                 </option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_2" placeholder="Repayment status in Second month" >
+                                                     <option>
+                                                        Repayment status in Seocond month
+                                                     </option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_3" placeholder="Repayment status in Third month" >
-                                                 <option>
-                                                    Repayment status in Third month
-                                                 </option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_3" placeholder="Repayment status in Third month" >
+                                                     <option>
+                                                        Repayment status in Third month
+                                                     </option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_4" placeholder="Repayment status in Fourth month" >
-                                                 <option>
-                                                    Repayment status in Fourth month
-                                                 </option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_4" placeholder="Repayment status in Fourth month" >
+                                                     <option>
+                                                        Repayment status in Fourth month
+                                                     </option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_5" placeholder="Repayment status in Fift month" >
-                                                 <option>
-                                                    Repayment status in Fift month
-                                                 </option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_5" placeholder="Repayment status in Fift month" >
+                                                     <option>
+                                                        Repayment status in Fift month
+                                                     </option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                             <select class="form-control" name="PAY_6" placeholder="Repayment status in Sixth month" >
-                                                 <option>
-                                                    Repayment status in Sixth month</option>
-                                                 <option value="-1">
-                                                     Pay Duly
-                                                 </option>
-                                                 <option value="-2">
-                                                     Payment Delay 
-                                                 </option>
-                                                 <option value="0">
-                                                     Payment Delay one month
-                                                 </option>
-                                                 <option value="1">
-                                                     Payment Delay two month
-                                                 </option>
-                                                 <option value="2">
-                                                     Payment Delay three month
-                                                 </option>
-                                                 <option value="3">
-                                                     Payment Delay four month
-                                                 </option>
-                                                 <option value="4">
-                                                     Payment Delay five month
-                                                 </option>
-                                                 <option value="5">
-                                                     Payment Delay six month
-                                                 </option>
-                                                 <option value="6">
-                                                     Payment Delay seven month
-                                                 </option>
-                                                 <option value="7">
-                                                     Payment Delay eight month
-                                                 </option>
-                                                  <option value="8">
-                                                     Payment Delay nine month or above
-                                                 </option>
-                                            </select>
-                                        </div>
+                                            <div class="ud-form-group">
+                                                 <select class="form-control" name="PAY_6" placeholder="Repayment status in Sixth month" >
+                                                     <option>
+                                                        Repayment status in Sixth month</option>
+                                                     <option value="-1">
+                                                         Pay Duly
+                                                     </option>
+                                                     <option value="-2">
+                                                         Payment Delay 
+                                                     </option>
+                                                     <option value="0">
+                                                         Payment Delay one month
+                                                     </option>
+                                                     <option value="1">
+                                                         Payment Delay two month
+                                                     </option>
+                                                     <option value="2">
+                                                         Payment Delay three month
+                                                     </option>
+                                                     <option value="3">
+                                                         Payment Delay four month
+                                                     </option>
+                                                     <option value="4">
+                                                         Payment Delay five month
+                                                     </option>
+                                                     <option value="5">
+                                                         Payment Delay six month
+                                                     </option>
+                                                     <option value="6">
+                                                         Payment Delay seven month
+                                                     </option>
+                                                     <option value="7">
+                                                         Payment Delay eight month
+                                                     </option>
+                                                      <option value="8">
+                                                         Payment Delay nine month or above
+                                                     </option>
+                                                </select>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT1" placeholder="Amount of bill statement in First month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT1" placeholder="Amount of bill statement in First month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT2" placeholder="Amount of bill statement in Second month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT2" placeholder="Amount of bill statement in Second month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT3" placeholder="Amount of bill statement in Third month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT3" placeholder="Amount of bill statement in Third month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT4" placeholder="Amount of bill statement in Fourth month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT4" placeholder="Amount of bill statement in Fourth month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT5" placeholder="Amount of bill statement in Fift month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT5" placeholder="Amount of bill statement in Fift month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="BILL_AMT6" placeholder="Amount of bill statement in Sixth month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="BILL_AMT6" placeholder="Amount of bill statement in Sixth month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT1" placeholder="Amount of previous payment in First month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT1" placeholder="Amount of previous payment in First month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT2" placeholder="Amount of previous payment in Second month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT2" placeholder="Amount of previous payment in Second month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT3" placeholder="Amount of previous payment in Three month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT3" placeholder="Amount of previous payment in Three month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT4" placeholder="Amount of previous payment in Fourth month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT4" placeholder="Amount of previous payment in Fourth month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT5" placeholder="Amount of previous payment in Fift month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT5" placeholder="Amount of previous payment in Fift month">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" name="PAY_AMT6" placeholder="Amount of previous payment in Sixth month">
-                                        </div>
+                                            <div class="ud-form-group">
+                                                <input type="number" class="form-control" name="PAY_AMT6" placeholder="Amount of previous payment in Sixth month">
+                                            </div>
 
-                                    </form>
-                                    <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a>Predict Credict Card Defaulter</a></button>
+                                        </form>
+                                        <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a>Predict Credict Card Defaulter</a></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -387,46 +389,43 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ====== result Start ====== -->
-    <div class="card">
-        <div class="card-header">
-                Credit Card Defaulter
+        <!-- ====== result Start ====== -->
+        <div class="card">
+            <div class="card-header">Credit Card Defaulter</div>
+            {% if context['CreditCard_Defaults_data'] is not none %}
+                <table class="table table-striped">
+                    <caption>Credit Card Defaults Prediction </caption>
+                    <tr>
+                        <th>Input Feature</th>
+                        <th>Feature Value</th>
+                    </tr>
+
+                    {% for column, value in context['CreditCard_Defaults_data'].items() %}
+                    <tr>
+                        <td>{{ column }}</td>
+                        <td>{{ value[0] }}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td>credit card defaulter </td>
+                        <td>
+                            {{ context['creditcard_default'] }}
+                        </td>
+                    </tr>
+                </table>
+
+            {% else %}
+
+                <h5 class="card-title">Submit Form</h5>
+                <p class="card-text">Kindly provide necessary information to estimate Credit Card Defaulter</p>
+
+            {% endif %}
+
         </div>
-        {% if context['CreditCard_Defaults_data'] is not none %}
-            <table class="table table-striped">
-                <caption>Credit Card Defaults Prediction </caption>
-                <tr>
-                    <th>Input Feature</th>
-                    <th>Feature Value</th>
-                </tr>
+        <!-- ====== result End ====== -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-                {% for column, value in context['CreditCard_Defaults_data'].items() %}
-                <tr>
-                    <td>{{ column }}</td>
-                    <td>{{ value[0] }}</td>
-                </tr>
-                {% endfor %}
-
-                <tr>
-                    <td>credit card defaulter </td>
-                    <td>
-                        {{ context['creditcard_default'] }}
-                    </td>
-                </tr>
-            </table>
-
-        {% else %}
-
-            <h5 class="card-title">Submit Form</h5>
-            <p class="card-text">Kindly provide necessary information to estimate Credit Card Defaulter</p>
-
-        {% endif %}
-
-    </div>
-    <!-- ====== result End ====== -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
+    </body>
 </html>
