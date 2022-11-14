@@ -93,7 +93,7 @@ def train():
     message = "Training Completed!!"
 
     context = {
-        "experiment": pipeline.get_experiments_status().to_html(classes="table table-stripod col-12"),
+        "experiments": pipeline.get_experiments_status().to_html(classes="table table-stripod col-12"),
         "message": message
     }
     return render_template("train.html", context=context)

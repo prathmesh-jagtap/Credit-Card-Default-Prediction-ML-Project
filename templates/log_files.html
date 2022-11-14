@@ -49,7 +49,8 @@
                     <div class="ud-about-content">
 						<span class="tag">Logs</span><br>
 						{% if "logs" in result['parent_folder'] %}
-						<a href="/logs/{{ result['parent_folder'] }}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+						<a href="/logs/{{ result['parent_folder'] }}">
+							<i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
 						<h4 style="text-align:center;">
 							{{ result['parent_label'] }}
 						</h4>
