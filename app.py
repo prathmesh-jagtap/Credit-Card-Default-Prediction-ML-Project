@@ -30,8 +30,7 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def index():
     try:
-        return "<p>Hello, World!</p>"
-        # return render_template("index.html")
+        return render_template("index.html")
     except Exception as e:
         return str(e)
 
