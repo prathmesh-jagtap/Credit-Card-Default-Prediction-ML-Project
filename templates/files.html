@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
     <title>Artifacts</title>
 
 
@@ -15,20 +15,20 @@
     <link rel="stylesheet" href="../static/css/ud-styles.css" />
 
     <link rel="stylesheet" href="../static/css/pop.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
-	<style type="text/css">
-@media (max-width: 567px){
-}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <style type="text/css">
+      @media (max-width: 567px) {}
+
     </style>
   </head>
-<body>
+  <body>
 
     <!-- ====== Header Start ====== -->
-    {% include "header.html" %}	
+    {% include "header.html" %}
     <!-- ====== Header End ====== -->
-	
-	<!-- ====== Banner Start ====== -->
-	<section class="ud-page-banner">
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -38,45 +38,46 @@
           </div>
         </div>
       </div>
-	</section>
+    </section>
     <!-- ====== Banner End ====== -->
 
-	<!-- ====== Body Start ====== -->
+    <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
-        <div class="container">
-            <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-                <div class="ud-about-content-wrapper">
-                    <div class="ud-about-content">
-                        <span class="tag">Artifacts</span><br>
-						{% if "CreditCard_Defaults" in result['parent_folder'] %}
-						<a href="/artifact/{{ result['parent_folder'] }}">
-							<i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
-						<h4 style="text-align:center;">
-							{{ result['parent_label'] }}
-						</h4>
-						{% endif %}
-						<div class="row">
-							{% for href, label in result["files"].items() %}
-							<div class="col-md-2 text-center">
-								<a href="/artifact/{{ href }}" style="text-decoration: none;">
-									<i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-lg" aria-hidden="true"></i>
-									<br>{{ label }}
-									{% if '.' in label %}
-									<i class="lni-download" aria-hidden="true"></i>
-									{% endif %}
-								</a>
-							</div>
-							{% endfor %}
-						</div>
-                    </div>
+      <div class="container">
+        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+          <div class="ud-about-content-wrapper">
+            <div class="ud-about-content">
+              <span class="tag">Artifacts</span><br>
+              {% if "CreditCard_Defaults" in result['parent_folder'] %}
+              <a href="/artifact/{{ result['parent_folder'] }}">
+                <i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
+              <h4 style="text-align:center;">
+                {{ result['parent_label'] }}
+              </h4>
+              {% endif %}
+              <div class="row">
+                {% for href, label in result["files"].items() %}
+                <div class="col-md-2 text-center">
+                  <a href="/artifact/{{ href }}" style="text-decoration: none;">
+                    <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-lg"
+                      aria-hidden="true"></i>
+                    <br>{{ label }}
+                    {% if '.' in label %}
+                    <i class="lni-download" aria-hidden="true"></i>
+                    {% endif %}
+                  </a>
                 </div>
+                {% endfor %}
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-	<!-- ====== Body Start ====== -->
-		  
+    <!-- ====== Body Start ====== -->
 
-	<!-- ====== Footer Start ====== -->
+
+    <!-- ====== Footer Start ====== -->
     {% include "footer.html" %}
     <!-- ====== Footer End ====== -->
 
@@ -91,7 +92,7 @@
     <script src="../static/js/wow.min.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/text_animation.js"></script>
-	      <script>
+    <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
 
@@ -134,9 +135,6 @@
 
       window.document.addEventListener("scroll", onScroll);
     </script>
-</body>
-	
+  </body>
+
 </html>
-
-
-
