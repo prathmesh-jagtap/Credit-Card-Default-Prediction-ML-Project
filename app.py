@@ -157,10 +157,10 @@ def predict():
                                                   )
         creditcard_df = CreditCard_Defaults_data.get_credit_input_data_frame()
         creditcard_predictor = CreditPredictor(model_dir=MODEL_DIR)
-        creditcard_default = creditcard_predictor.predict(X=creditcard_df)
+        DEFAULTS = creditcard_predictor.predict(X=creditcard_df)
         context = {
             CREDIT_CARD_DATA_KEY: CreditCard_Defaults_data.get_credit_data_as_dict(),
-            CREDIT_CARD_DEFAULTS_VALUE_KEY: creditcard_default,
+            CREDIT_CARD_DEFAULTS_VALUE_KEY: DEFAULTS,
         }
         return render_template('predict.html', context=context)
     return render_template("predict.html", context=context)

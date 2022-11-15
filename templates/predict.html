@@ -392,7 +392,7 @@
         <!-- ====== result Start ====== -->
         <div class="card">
             <div class="card-header">Credit Card Defaulter</div>
-            {% if context[ CREDIT_CARD_DATA_KEY ] is not none %}
+            {% if context[ "CreditCard_Defaults_data" ] is not none %}
                 <table class="table table-striped">
                     <caption>Credit Card Defaults Prediction </caption>
                     <tr>
@@ -400,7 +400,7 @@
                         <th>Feature Value</th>
                     </tr>
 
-                    {% for column, value in context[ CREDIT_CARD_DATA_KEY ].items() %}
+                    {% for column, value in context[ "CreditCard_Defaults_data" ].items() %}
                     <tr>
                         <td>{{ column }}</td>
                         <td>{{ value[0] }}</td>
@@ -410,7 +410,7 @@
                     <tr>
                         <td>credit card defaulter</td>
                         <td>
-                            {{ context[ CREDIT_CARD_DEFAULTS_VALUE_KEY ] }}
+                            {{ context[ 'creditcard_default' ] }}
                         </td>
                     </tr>
                 </table>
