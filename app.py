@@ -27,6 +27,14 @@ CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 app = Flask(__name__)
 
 
+@app.route('/', methods=["GET", "POST"])
+def index():
+    try:
+        return render_template("index.html")
+    except Exception as e:
+        return str(e)
+
+
 @app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'})
 @app.route('/artifact/<path:req_path>', methods=['POST', 'GET'])
 def render_artifact_dir(req_path):
@@ -60,14 +68,6 @@ def render_artifact_dir(req_path):
         "parent_label": abs_path
     }
     return render_template('files.html', result=result)
-
-
-@app.route('/', methods=["GET", "POST"])
-def index():
-    try:
-        return render_template("index.html")
-    except Exception as e:
-        return str(e)
 
 
 @app.route("/view_experiment_hist", methods=['GET', 'POST'])
@@ -243,4 +243,4 @@ def render_log_dir(req_path):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
