@@ -101,10 +101,10 @@ def train():
 
 @app.route('/predict', methods=['GET', "POST"])
 def predict():
-    context = {
-        CREDIT_CARD_DATA_KEY: None,
-        CREDIT_CARD_DEFAULTS_VALUE_KEY: None
-    }
+    # context = {
+    #     CREDIT_CARD_DATA_KEY: None,
+    #     CREDIT_CARD_DEFAULTS_VALUE_KEY: None
+    # }
 
     if request.method == 'POST':
         LIMIT_BAL = float(request.form['LIMIT_BAL'])
