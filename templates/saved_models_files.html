@@ -61,11 +61,13 @@
                 {% for href, label in result["files"].items() %}
                 <div class="col-md-2 text-center">
                   <a href="/saved_models/{{ href }}" style="text-decoration: none;">
-                    <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-lg"
+                    <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-32"
                       aria-hidden="true"></i>
                     <br>{{ label }}
                     {% if '.' in label %}
                     <i class="lni-download" aria-hidden="true"></i>
+					{% else %}
+					<i class="lni lni-empty-file lni-32" aria-hidden="true"></i>
                     {% endif %}
                   </a>
                 </div>

@@ -59,7 +59,7 @@
                 {% for href, label in result["files"].items() %}
                 <div class="col-md-2 text-center">
                   <a href="/logs/{{ href }}" style="text-decoration: none;">
-                    <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-lg"
+                    <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-32"
                       aria-hidden="true"></i>
                     <br>{{ label }}
                     {% if '.' in label %}
