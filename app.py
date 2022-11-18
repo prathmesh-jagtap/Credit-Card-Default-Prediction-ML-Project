@@ -101,10 +101,10 @@ def train():
 
 @app.route('/predict', methods=['GET', "POST"])
 def predict():
-    context = {
-        CREDIT_CARD_DATA_KEY: None,
-        CREDIT_CARD_DEFAULTS_VALUE_KEY: None
-    }
+    # context = {
+    #     CREDIT_CARD_DATA_KEY: None,
+    #     CREDIT_CARD_DEFAULTS_VALUE_KEY: None
+    # }
 
     if request.method == 'POST':
         LIMIT_BAL = float(request.form['LIMIT_BAL'])
@@ -228,7 +228,8 @@ def render_log_dir(req_path):
     # Check if path is a file and serve
     if path.isfile(abs_path):
         log_df = get_log_dataframe(abs_path)
-        context = {"log": log_df.to_html(classes="table-striped", index=False)}
+        context = {"log": log_df.to_html(
+            classes="table table-striped", index=False)}
         return render_template('log.html', context=context)
 
     # Show directory contents
