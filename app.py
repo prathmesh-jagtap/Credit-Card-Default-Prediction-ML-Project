@@ -1,6 +1,6 @@
 import json
 from os import getcwd, listdir, makedirs, path
-
+from time import sleep
 from flask import Flask, abort, render_template, request, send_file
 
 from CreditCard_Defaults.config.configuration import Configuration
@@ -74,7 +74,7 @@ def render_artifact_dir(req_path):
 def view_experiment_history():
     experiment_df = Pipeline.get_experiments_status()
     context = {
-        "experiment": experiment_df.to_html(classes="table table-stripod col-12")
+        "experiment": experiment_df.to_html(classes="table table-striped")
     }
     return render_template('experiment_history.html', context=context)
 
@@ -87,13 +87,12 @@ def train():
     if not Pipeline.experiment.running_status:
         message = "Training Started!"
         pipeline.start()
+        sleep(5.0)
     else:
         message = "Training is already in progress."
 
-    message = "Training Completed!!"
-
     context = {
-        "experiments": pipeline.get_experiments_status().to_html(classes="table table-stripod col-12"),
+        "experiments": pipeline.get_experiments_status().to_html(classes="table table-striped"),
         "message": message
     }
     return render_template("train.html", context=context)
