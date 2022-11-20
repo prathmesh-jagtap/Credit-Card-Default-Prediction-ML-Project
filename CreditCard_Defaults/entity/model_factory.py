@@ -40,7 +40,7 @@ MetricInfoArtifact = namedtuple("MetricInfoArtifact",
 
 
 def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train: np.ndarray,
-                                  X_test: np.ndarray, y_test: np.ndarray, base_accuracy: float = 0.6) -> MetricInfoArtifact:
+                                  X_test: np.ndarray, y_test: np.ndarray, base_accuracy: float = 0.5) -> MetricInfoArtifact:
     """
     Description:    
     This function compare multiple classification model return best model
@@ -63,45 +63,46 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
         for model in model_list:
             model_name = str(model)  # getting model name based on model object
             logging.info(
-                f"{'>>'*30}Started evaluating model: [{type(model).__name__}] {'<<'*30}")
+                f"{'>>'*30} Started evaluating model: [{type(model).__name__}] {'<<'*30}")
 
             # Getting prediction for training and testing dataset
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
 
             # Calculating f1 score = 2 * (precision * recall) / (precision + recall) score on training and testing dataset
-            train_acc = f1_score(y_train, y_train_pred)
-            test_acc = f1_score(y_test, y_test_pred)
+            # tradeoff between Precision and Recall
+            train_fs = f1_score(y_train, y_train_pred)
+            test_fs = f1_score(y_test, y_test_pred)
 
-            # Calculating mean squared error on training and testing dataset
+            # Calculating accuracy score on training and testing dataset
             train_as = accuracy_score(y_train, y_train_pred)
             test_as = accuracy_score(y_test, y_test_pred)
 
             # Calculating harmonic mean of train_accuracy and test_accuracy
-            model_accuracy = (2 * (train_acc * test_acc)) / \
-                (train_acc + test_acc)
-            diff_test_train_acc = abs(test_acc - train_acc)
+            model_accuracy = (2 * (train_as * test_as)) / \
+                (train_as + test_as)
+            diff_test_train_acc = abs(test_as - train_as)
 
             # logging all important metric
             logging.info(f"{'>>'*30} Score {'<<'*30}")
-            logging.info(f"Train Score\t\t Test Score\t\t Average Score")
-            logging.info(f"{train_acc}\t\t {test_acc}\t\t{model_accuracy}")
+            logging.info(f"Train f1-Score\t\t Test f1-Score\t\t Average Score")
+            logging.info(f"{train_fs}\t\t {test_fs}\t\t{model_accuracy}")
 
             logging.info(f"{'>>'*30} Loss {'<<'*30}")
-            logging.info(f"Diff test train accuracy: [{diff_test_train_acc}].")
-            logging.info(f"Train accuracy score: [{train_as}].")
-            logging.info(f"Test accuracy score: [{test_as}].")
+            logging.info(f"Diff test train F1 score: [{diff_test_train_acc}].")
+            logging.info(f"Train accuracy based on f1score: [{train_fs}].")
+            logging.info(f"Test accuracy based on f1score: [{test_fs}].")
 
             # if model accuracy is greater than base accuracy and train and test score is within certain thershold
             # we will accept that model as accepted model
-            if model_accuracy >= base_accuracy and diff_test_train_acc < 0.05:
+            if train_fs >= base_accuracy and test_fs >= base_accuracy and diff_test_train_acc < 0.05:
                 base_accuracy = model_accuracy
                 metric_info_artifact = MetricInfoArtifact(model_name=model_name,
                                                           model_object=model,
                                                           train_accuracy_score=train_as,
                                                           test_accuracy_score=test_as,
-                                                          train_accuracy=train_acc,
-                                                          test_accuracy=test_acc,
+                                                          train_accuracy=train_fs,
+                                                          test_accuracy=test_fs,
                                                           model_accuracy=model_accuracy,
                                                           index_number=index_number)
 
@@ -281,6 +282,7 @@ class ModelFactory:
                 initialized_model_list.append(model_initialization_config)
 
             self.initialized_model_list = initialized_model_list
+            logging.info(f"model list:- {self.initialized_model_list}")
             return self.initialized_model_list
         except Exception as e:
             raise DefaultException(e, sys) from e

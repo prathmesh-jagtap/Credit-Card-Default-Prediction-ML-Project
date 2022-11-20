@@ -76,26 +76,28 @@ class DataIngestion:
 
             logging.info(f"Reading csv file: [{defaults_file_path}]")
             default_data_frame = pd.read_csv(defaults_file_path)
+            default_data_frame.drop(columns=['ID'], axis=1, inplace=True)
             default_data_frame.rename(columns={'PAY_0': 'PAY_1', 'SEX': 'GENDER', 'default.payment.next.month': 'DEFAULTS'},
                                       inplace=True)
-            default_data_frame.drop(columns=['ID'], axis=1, inplace=True)
 
             if default_data_frame['GENDER'].dtypes == "O":
                 default_data_frame['GENDER'].replace(
                     {'Male': 1, 'Female': 2}, inplace=True)
 
+            logging.info(f"\n{default_data_frame.columns}\n")
             logging.info("Splitting data into train and test")
             strat_train_set = None
             strat_test_set = None
 
+            X = default_data_frame.drop(columns=['DEFAULTS'])
+            y = default_data_frame["DEFAULTS"]
+
             split = StratifiedShuffleSplit(
                 n_splits=1, test_size=0.2, random_state=42)
 
-            for train_index, test_index in split.split(default_data_frame, default_data_frame["DEFAULTS"]):
-                strat_train_set = default_data_frame.loc[train_index].drop(
-                    ["DEFAULTS"], axis=1)
-                strat_test_set = default_data_frame.loc[test_index].drop(
-                    ["DEFAULTS"], axis=1)
+            for train_index, test_index in split.split(X, y):
+                strat_train_set = default_data_frame.loc[train_index]
+                strat_test_set = default_data_frame.loc[test_index]
 
             train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir,
                                            file_name)

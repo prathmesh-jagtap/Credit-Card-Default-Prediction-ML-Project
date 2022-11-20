@@ -58,7 +58,7 @@
               <div class="row">
                 {% for href, label in result["files"].items() %}
 				  &nbsp;&nbsp;
-                <div class="col-md-2 text-center">
+                <div class="col-md-2 text-center">&nbsp;&nbsp;&nbsp;
                   <a href="/artifact/{{ href }}" style="text-decoration: none;">
                     <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-65"
                       aria-hidden="true"></i>

@@ -70,6 +70,7 @@ def render_artifact_dir(req_path):
     return render_template('files.html', result=result)
 
 
+# =====================================================  HISTORY
 @app.route("/view_experiment_hist", methods=['GET', 'POST'])
 def view_experiment_history():
     experiment_df = Pipeline.get_experiments_status()
@@ -79,6 +80,7 @@ def view_experiment_history():
     return render_template('experiment_history.html', context=context)
 
 
+# =====================================================  TRAINING
 @app.route('/train', methods=['GET', "POST"])
 def train():
     message = ""
@@ -192,6 +194,7 @@ def saved_models_dir(req_path):
     return render_template('saved_models_files.html', result=result)
 
 
+# =====================================================  UPDATE
 @app.route("/update_model_config", methods=['GET', 'POST'])
 def update_model_config():
     try:
@@ -212,6 +215,7 @@ def update_model_config():
         return str(e)
 
 
+# ========================================================= LOGS
 @app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'}, methods=['POST', 'GET'])
 @app.route(f'/{LOG_FOLDER_NAME}/<path:req_path>')
 def render_log_dir(req_path):
@@ -227,8 +231,8 @@ def render_log_dir(req_path):
     # Check if path is a file and serve
     if path.isfile(abs_path):
         log_df = get_log_dataframe(abs_path)
-        context = {"log": log_df.to_html(
-            classes="table table-striped", index=False)}
+        logging.info(f"/logs:-{log_df}")
+        context = {"log": log_df}
         return render_template('log.html', context=context)
 
     # Show directory contents

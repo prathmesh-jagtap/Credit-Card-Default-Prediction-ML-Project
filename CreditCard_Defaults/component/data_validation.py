@@ -84,7 +84,10 @@ class DataValidation:
                         validation_status = True
                 else:
                     validation_status = False
+            logging.info(
+                f"{'+'*10}Columns Name:- {train_df.columns}{'+'*10}\n")
             return validation_status
+
         except Exception as e:
             raise DefaultException(e, sys) from e
 

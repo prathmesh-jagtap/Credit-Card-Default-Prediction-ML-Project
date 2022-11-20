@@ -32,6 +32,13 @@ model_selection:
       criterion:
         - gini
         - entropy
-  module_3:
+  module_2:
     class: GaussianNB
-    module: naive_bayes
+    module: sklearn.naive_bayes
+    params:
+      var_smoothing: 0.000000001
+    search_param_grid:
+      var_smoothing:
+        - 0.00000001
+        - 0.000000001
+        - 0.00000001

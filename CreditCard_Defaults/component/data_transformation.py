@@ -53,7 +53,8 @@ class DataTransformation:
 
             cat_pipeline = Pipeline(steps=[
                 ('impute', SimpleImputer(strategy="most_frequent")),
-                ('one_hot_encoder', OneHotEncoder()),
+                # ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore')),
+                # all the categorical_columns are already in numerical categorized.
                 ('scaler', StandardScaler(with_mean=False))
             ]
             )
@@ -83,6 +84,7 @@ class DataTransformation:
 
             logging.info(
                 f"Loading training and test data as pandas dataframe.")
+
             train_df = load_data(file_path=train_file_path,
                                  schema_file_path=schema_file_path)
 
