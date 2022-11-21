@@ -154,7 +154,7 @@ class Pipeline(Thread):
                 logging.info(f'Model pusher artifact: {model_pusher_artifact}')
             else:
                 logging.info("Trained model rejected.")
-            logging.info("Pipeline completed.")
+            logging.info(f"Pipeline completed.{50 * 'X'}\n")
 
             stop_time = datetime.now()
             Pipeline.experiment = Experiment(experiment_id=Pipeline.experiment.experiment_id,
