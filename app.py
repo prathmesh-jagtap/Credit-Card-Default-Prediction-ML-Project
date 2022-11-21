@@ -75,7 +75,8 @@ def render_artifact_dir(req_path):
 def view_experiment_history():
     experiment_df = Pipeline.get_experiments_status()
     context = {
-        "experiment": experiment_df.to_html(classes="table table-striped")
+        "headings": experiment_df.columns,
+        "data": experiment_df.values
     }
     return render_template('experiment_history.html', context=context)
 
@@ -95,8 +96,9 @@ def train():
 
     experiment_df = pipeline.get_experiments_status()
     context = {
-        "experiments": experiment_df.to_html(classes="table table-striped"),
-        "message": message
+        "headings": experiment_df.columns,
+        "data": experiment_df.values,
+        "message": experiment_df["message"]
     }
     return render_template("train.html", context=context)
 
@@ -233,7 +235,8 @@ def render_log_dir(req_path):
     if path.isfile(abs_path):
         log_df = get_log_dataframe(abs_path)
         logging.info(f"/logs:-{log_df}")
-        context = {"log": log_df}
+        context = {"log": log_df
+                   }
         return render_template('log.html', context=context)
 
     # Show directory contents

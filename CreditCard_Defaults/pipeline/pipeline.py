@@ -134,24 +134,33 @@ class Pipeline(Thread):
 
             self.save_experiment()
 
+            # step 1 : DATA INGESTION
             data_ingestion_artifact = self.start_data_ingestion()
+
+            # step 2 : DATA VALIDATION
             data_validation_artifact = self.start_data_validation(
                 data_ingestion_artifact=data_ingestion_artifact)
+
+            # step 3 : DATA TRANSFORMATION
             data_transformation_artifact = self.start_data_transformation(
                 data_ingestion_artifact=data_ingestion_artifact,
                 data_validation_artifact=data_validation_artifact
             )
+
+            # step 4 : MODEL TRAINING
             model_trainer_artifact = self.start_model_trainer(
                 data_transformation_artifact=data_transformation_artifact)
 
+            # step 5 : MODEL EVALUATION
             model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
                                                                     data_validation_artifact=data_validation_artifact,
                                                                     model_trainer_artifact=model_trainer_artifact)
 
+            # step 5 : MODEL PUSHER
             if model_evaluation_artifact.is_model_accepted:
                 model_pusher_artifact = self.start_model_pusher(
                     model_eval_artifact=model_evaluation_artifact)
-                logging.info(f'Model pusher artifact: {model_pusher_artifact}')
+                logging.info(f'\ttt Model pusher artifact: {model_pusher_artifact}')
             else:
                 logging.info("Trained model rejected.")
             logging.info(f"Pipeline completed.{50 * 'X'}\n")

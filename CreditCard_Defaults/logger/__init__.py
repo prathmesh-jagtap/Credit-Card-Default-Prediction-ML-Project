@@ -35,6 +35,7 @@ def get_log_dataframe(file_path):
                'File Name', 'Function Name', 'Message']
     log_df.columns = columns
 
-    log_df['log_message'] = log_df['Time Stmap'].astype(
-        str) + ":$" + log_df["Message"]
-    return log_df[["log_message"]]
+    new_log = log_df.drop(columns=['Log Level', 'Line Number',
+                                   'File Name', 'Function Name'], axis=1)
+
+    return new_log

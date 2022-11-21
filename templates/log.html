@@ -47,12 +47,21 @@
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
-              <span class="tag">Log Details</span><br>
-              <div class="row">
-                <div class="col-md-12" style="margin-bottom:20px;height:500px;overflow:scroll">
-                  {{ context['log']|safe }}
-                </div>
-              </div>
+              <span class="tag">Log Details</span><br><br>
+				<table class="table table-light table-hover">
+					<tr>
+						{% for header in context['log'].columns|safe %}
+						<th>{{ header }}</th>
+						{% endfor %}
+					</tr>
+					{% for row in context['log'].values|safe %}
+					<tr>
+						{% for cell in row %}
+						<td>{{ cell }}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				</table>
             </div>
           </div>
         </div>

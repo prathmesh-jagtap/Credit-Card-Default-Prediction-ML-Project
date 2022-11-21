@@ -49,8 +49,7 @@
             <div class="ud-about-content">
               <span class="tag">Models</span><br>
               {% if "saved_models" in result['parent_folder'] %}
-              <a href="/saved_models/{{ result['parent_folder'] }}">
-                <i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
+              <a href="/saved_models/{{ result['parent_folder'] }}">&nbsp;<i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
 
               <h4 style="text-align:center;">
                 {{ result['parent_label'] }}
@@ -59,8 +58,7 @@
 
               <div class="row">
                 {% for href, label in result["files"].items() %}
-				  &nbsp;&nbsp;
-                <div class="col-md-2 text-center">
+                <div class="col-md-2 text-center">&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href="/saved_models/{{ href }}" style="text-decoration: none;">
                     <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-65"
                       aria-hidden="true"></i>

@@ -44,16 +44,40 @@
     <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
-		 <div class="alert alert-success" role="alert" style="margin:auto">
-             {{ context['message'] }}
-         </div>
+		  {% if context['experiments'].running_status %}
+		  <div class="alert alert-info" role="alert" style="margin:auto">
+			  {{ context['message'] }}
+			  <div class="spinner-border spinner-border-sm text-primary" role="status">
+				  <span class="visually-hidden">Loading...</span>
+			  </div>
+			  <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+				  <span class="visually-hidden">Loading...</span>
+			  </div>
+		</div>
+		  {% else %}
+		  <div class="alert alert-success" role="alert" style="margin:auto">
+			  {{ context['message'] }}
+		  </div>
+		  {% endif %}
+		 
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
             <div class="ud-about-content">
-              <span class="tag">Training History</span><br>
-              <div class="row">
-                {{ context['experiments']|safe }}
-              </div>
+              <span class="tag">Training History</span><br><br>
+				<table class="table table-info table-hover">
+					<tr>
+						{% for header in context['headings']|safe %}
+						<th>{{ header }}</th>
+						{% endfor %}
+					</tr>
+					{% for row in context['data']|safe %}
+					<tr>
+						{% for cell in row %}
+						<td>{{ cell }}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				</table>
             </div>
           </div>
         </div>
