@@ -20,7 +20,6 @@ model_selection:
       min_samples_leaf: 2
     search_param_grid:
       min_samples_leaf:
-        - 4
         - 6
         - 12
       n_estimators:
@@ -28,7 +27,6 @@ model_selection:
         - 300
         - 500
         - 800
-        - 1000
       criterion:
         - gini
         - entropy

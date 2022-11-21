@@ -3,6 +3,7 @@ import sys
 import importlib
 import yaml
 import numpy as np
+from time import sleep
 from typing import List
 from collections import namedtuple
 from sklearn.metrics import f1_score, accuracy_score
@@ -57,11 +58,12 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
                                  "test_accuracy", "model_accuracy", "index_number"])
     """
     try:
-        #model_list = [model.best_model for model in model_list]
+        # model_list = [model.best_model for model in model_list]
         index_number = 0
         metric_info_artifact = None
         for model in model_list:
-            model_name = str(model)  # getting model name based on model object
+            # getting model name based on model object
+            model_name = type(model).__name__
             logging.info(
                 f"{'>>'*30} Started evaluating model: [{type(model).__name__}] {'<<'*30}")
 
@@ -69,7 +71,8 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
 
-            # Calculating f1 score = 2 * (precision * recall) / (precision + recall) score on training and testing dataset
+            # Calculating f1 score = 2 * (precision * recall) / (precision + recall)
+            # score on training and testing dataset
             # tradeoff between Precision and Recall
             train_fs = f1_score(y_train, y_train_pred)
             test_fs = f1_score(y_test, y_test_pred)
@@ -79,35 +82,40 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
             test_as = accuracy_score(y_test, y_test_pred)
 
             # Calculating harmonic mean of train_accuracy and test_accuracy
-            model_accuracy = (2 * (train_as * test_as)) / \
-                (train_as + test_as)
+            model_accuracy = (2 * (train_as * test_as)) / (train_as + test_as)
             diff_test_train_acc = abs(test_as - train_as)
 
             # logging all important metric
             logging.info(f"{'>>'*30} Score {'<<'*30}")
-            logging.info(f"Train f1-Score\t\t Test f1-Score\t\t Average Score")
-            logging.info(f"{train_fs}\t\t {test_fs}\t\t{model_accuracy}")
+            logging.info(
+                f"Train f1-Score \t\t Test f1-Score \t\t Average Score")
+            logging.info(f"{train_fs} \t\t {test_fs} \t\t {model_accuracy}")
 
             logging.info(f"{'>>'*30} Loss {'<<'*30}")
-            logging.info(f"Diff test train F1 score: [{diff_test_train_acc}].")
-            logging.info(f"Train accuracy based on f1score: [{train_fs}].")
-            logging.info(f"Test accuracy based on f1score: [{test_fs}].")
+            logging.info(
+                f"Diff test train accuracy score: [{diff_test_train_acc}].")
+            logging.info(
+                f"Train accuracy based on accuracy score: [{train_as}].")
+            logging.info(
+                f"Test accuracy based on accuracy score: [{test_as}].")
+            logging.info("\n\n")
 
             # if model accuracy is greater than base accuracy and train and test score is within certain thershold
             # we will accept that model as accepted model
-            if train_fs >= base_accuracy and test_fs >= base_accuracy and diff_test_train_acc < 0.05:
+            if train_fs >= base_accuracy and test_fs >= 0.48 and model_accuracy > base_accuracy:
                 base_accuracy = model_accuracy
                 metric_info_artifact = MetricInfoArtifact(model_name=model_name,
                                                           model_object=model,
                                                           train_accuracy_score=train_as,
                                                           test_accuracy_score=test_as,
-                                                          train_accuracy=train_fs,
-                                                          test_accuracy=test_fs,
+                                                          train_f1score=train_fs,
+                                                          test_f1score=test_fs,
                                                           model_accuracy=model_accuracy,
                                                           index_number=index_number)
 
                 logging.info(
                     f"Acceptable model found {metric_info_artifact}. ")
+                sleep(2)
             index_number += 1
         if metric_info_artifact is None:
             logging.info(
@@ -139,7 +147,7 @@ def get_sample_model_config_yaml_file(export_dir: str):
                          },
                     SEARCH_PARAM_GRID_KEY: {
                         "param_name": ['param_value_1', 'param_value_2']
-                        }
+                    }
                 },
             }
         }

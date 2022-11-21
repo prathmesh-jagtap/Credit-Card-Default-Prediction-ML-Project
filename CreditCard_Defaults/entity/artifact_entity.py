@@ -24,10 +24,14 @@ DataTransformationArtifact = namedtuple("DataTransformationArtifact",
                                          "preprocessed_object_file_path"])
 
 ModelTrainerArtifact = namedtuple("ModelTrainerArtifact",
-                                  ["is_trained", "message",
+                                  ["is_trained",
+                                   "message",
                                    "trained_model_file_path",
-                                   "train_accuracy_score", "test_accuracy_score",
-                                   "train_accuracy", "test_accuracy",
+                                   "model_name"
+                                   "train_accuracy_score",
+                                   "test_accuracy_score",
+                                   "train_accuracy",
+                                   "test_accuracy",
                                    "model_accuracy"])
 
 ModelEvaluationArtifact = namedtuple("ModelEvaluationArtifact",

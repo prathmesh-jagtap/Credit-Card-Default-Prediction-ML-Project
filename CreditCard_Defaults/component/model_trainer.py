@@ -102,18 +102,20 @@ class ModelTrainer:
             trained_model_file_path = self.model_trainer_config.trained_model_file_path
             credict_default_model = CredictDefaultEstimatorModel(
                 preprocessing_object=preprocessing_obj, trained_model_object=model_object)
+
             logging.info(f"Saving model at path: {trained_model_file_path}")
             save_object(file_path=trained_model_file_path,
                         obj=credict_default_model)
 
-            model_trainer_artifact = ModelTrainerArtifact(is_trained=True, message="Model Trained successfully",
+            model_trainer_artifact = ModelTrainerArtifact(is_trained=True,
+                                                          message="Model Trained successfully",
                                                           trained_model_file_path=trained_model_file_path,
+                                                          model_name = metric_info.model_name,
                                                           train_accuracy_score=metric_info.train_accuracy_score,
                                                           test_accuracy_score=metric_info.test_accuracy_score,
-                                                          train_accuracy=metric_info.train_accuracy,
-                                                          test_accuracy=metric_info.test_accuracy,
+                                                          train_accuracy=metric_info.train_f1score,
+                                                          test_accuracy=metric_info.test_f1score,
                                                           model_accuracy=metric_info.model_accuracy
-
                                                           )
 
             logging.info(f"Model Trainer Artifact: {model_trainer_artifact}")
