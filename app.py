@@ -96,9 +96,8 @@ def train():
 
     experiment_df = pipeline.get_experiments_status()
     context = {
-        "headings": experiment_df.columns,
-        "data": experiment_df.values,
-        "message": experiment_df["message"]
+        "experiments": experiment_df, 
+        "message": message
     }
     return render_template("train.html", context=context)
 
@@ -219,7 +218,7 @@ def update_model_config():
 
 
 # ========================================================= LOGS
-@app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'}, methods=['POST', 'GET'])
+@app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'})
 @app.route(f'/{LOG_FOLDER_NAME}/<path:req_path>')
 def render_log_dir(req_path):
     makedirs(LOG_FOLDER_NAME, exist_ok=True)
@@ -229,14 +228,12 @@ def render_log_dir(req_path):
     print(abs_path)
     # Return 404 if path doesn't exist
     if not path.exists(abs_path):
-        return render_template("404.html")
+        return abort(404)
 
     # Check if path is a file and serve
     if path.isfile(abs_path):
         log_df = get_log_dataframe(abs_path)
-        logging.info(f"/logs:-{log_df}")
-        context = {"log": log_df
-                   }
+        context = {"log": log_df}
         return render_template('log.html', context=context)
 
     # Show directory contents

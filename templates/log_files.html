@@ -44,33 +44,34 @@
     <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">Logs</span><br>
+        <div class="ud-about-wrapper-2 wow fadeInUp" style="padding: 70px;" data-wow-delay=".2s">
+<!--          <div class="ud-about-content-wrapper">-->
+            <div class="ud-about-content-2">
+              <span class="tag-2">Logs</span><br>
               {% if "logs" in result['parent_folder'] %}
-              <a href="/logs/{{ result['parent_folder'] }}">
-                <i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
-              <h4 style="text-align:center;">
+              <a href="/logs/{{ result['parent_folder'] }}">&nbsp;<i class="lni lni-arrow-left" aria-hidden="true"></i>Back</a>
+				
+              <h5 style="text-align:center;">
                 {{ result['parent_label'] }}
-              </h4>
+              </h5>
               {% endif %}
-              <div class="row">
-                {% for href, label in result["files"].items() %}
-                <div class="col-md-2 text-center">&nbsp; &nbsp; &nbsp; &nbsp;
+				<br><br>
+			<div class="row">
+                {% for href, label in result["files"].items() %}  
+                <div class="col-md-2 text-center">
                   <a href="/logs/{{ href }}" style="text-decoration: none;">
                     <i class="lni {% if '.' in label %} lni-files {% else %} lni-folder {% endif %} lni-65"
                       aria-hidden="true"></i>
                     <br>{{ label }}
                     {% if '.' in label %}
-                    <i class="lni-download" aria-hidden="true"></i>
+                    <i class="lni lni-download" aria-hidden="true"></i>
                     {% endif %}
                   </a>
                 </div>
                 {% endfor %}
-              </div>
+			</div>
             </div>
-          </div>
+<!--          </div>-->
         </div>
       </div>
     </section>

@@ -42,29 +42,35 @@
 
     <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
-      <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">Training History</span><br><br>
-                  <table class="table table-light table-hover">
-					<tr>
-						{% for header in context['headings']|safe %}
-						<th>{{ header }}</th>
-						{% endfor %}
-					</tr>
-					{% for row in context['data']|safe %}
-					<tr>
-						{% for cell in row %}
-						<td>{{ cell }}</td>
-						{% endfor %}
-					</tr>
-					{% endfor %}
-				</table>
-            </div>
+          <div class="container">
+                <div class="ud-about-wrapper-2 wow fadeInUp" style="padding: 70px;" data-wow-delay=".2s">
+<!--                      <div class="ud-about-content-wrapper">-->
+                            <div style="margin: auto;" >
+                              <span class="tag-2">Training History</span><br><br>
+                                <div class="row" style="--bs-gutter-x: 0;" >
+                                    <div class="table-responsive">
+                                          <table class="table table-light table-hover">
+                                              <thead class="table-primary">
+                                                  <tr>
+                                                      {% for header in context['headings'] %}
+                                                      <th>{{ header.capitalize() }}</th>
+                                                      {% endfor %}
+                                                  </tr>
+                                              </thead>
+                                            {% for row in context['data'] %}
+                                            <tr>
+                                                {% for cell in row %}
+                                                <td>{{ cell }}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+<!--                                </div>-->
+                            </div>
+                      </div>
+                </div>
           </div>
-        </div>
-      </div>
     </section>
     <!-- ====== Body Start ====== -->
 

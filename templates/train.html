@@ -44,42 +44,50 @@
     <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
-		  {% if context['experiments'].running_status %}
-		  <div class="alert alert-info" role="alert" style="margin:auto">
-			  {{ context['message'] }}
-			  <div class="spinner-border spinner-border-sm text-primary" role="status">
+		  {% if context['experiments'].iloc[-1].running_status %}
+		  <div class="alert alert-warning" role="alert" style="margin:auto">
+			  Training has been started.
+			  <div class="spinner-border spinner-border-sm text-danger" role="status">
 				  <span class="visually-hidden">Loading...</span>
 			  </div>
-			  <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+			  <div class="spinner-grow spinner-grow-sm text-danger" role="status">
 				  <span class="visually-hidden">Loading...</span>
 			  </div>
 		</div>
 		  {% else %}
 		  <div class="alert alert-success" role="alert" style="margin:auto">
-			  {{ context['message'] }}
+			  Training complete.
 		  </div>
 		  {% endif %}
 		 
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">Training History</span><br><br>
-				<table class="table table-info table-hover">
-					<tr>
-						{% for header in context['headings']|safe %}
-						<th>{{ header }}</th>
-						{% endfor %}
-					</tr>
-					{% for row in context['data']|safe %}
-					<tr>
-						{% for cell in row %}
-						<td>{{ cell }}</td>
-						{% endfor %}
-					</tr>
-					{% endfor %}
-				</table>
+        <div class="ud-about-wrapper-2 wow fadeInUp" style="padding: 70px;" data-wow-delay=".2s">
+<!--          <div class="ud-about-content-wrapper">-->
+            <div>
+              <span class="tag-2">Training History</span><br><br>
+				<div class="row" style="--bs-gutter-x: 0;">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead class="table-primary">
+									<tr>
+										{% for header in context['experiments'].columns %}
+										<th>{{ header.capitalize() }}</th>
+										{% endfor %}
+									</tr>
+								</thead>
+								{% for row in context['experiments'].values %}
+								<tbody>
+									<tr>
+										{% for cell in row %}
+										<td>{{ cell }}</td>
+										{% endfor %}
+									</tr>
+								</tbody>
+								{% endfor %}
+							</table>
+						</div>
+				</div>
             </div>
-          </div>
+<!--          </div>-->
         </div>
       </div>
     </section>

@@ -813,6 +813,7 @@ p {
   }
 }
 
+
 .ud-about-content-wrapper {
   padding: 70px;
 }
@@ -834,6 +835,16 @@ p {
 }
 
 .ud-about-content .tag {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+  background: var(--primary-color);
+  padding: 5px 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+ .tag-2 {
   font-weight: 500;
   font-size: 14px;
   color: var(--white);
@@ -874,6 +885,27 @@ p {
     text-align: center;
   }
 }
+
+/* ############################# added manuallly ############################# */
+.ud-about-wrapper-2 {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+/*  display: -webkit-box;*/
+/*
+  display: -ms-flexbox;
+  display: flex;
+*/
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+
+}
+
+.ud-about-content-2 {
+  max-width: auto;
+}
+
+/* ############################# added manuallly ############################# */
 
 /* ===== Pricing CSS ===== */
 .ud-pricing {

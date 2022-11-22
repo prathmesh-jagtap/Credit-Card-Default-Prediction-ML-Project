@@ -27,15 +27,16 @@ logging.basicConfig(filename=LOG_FILE_PATH,
 def get_log_dataframe(file_path):
     data = []
     with open(file_path) as log_file:
-        for line in log_file.readline():
+        for line in log_file.readlines():
             data.append(line.split("^;"))
 
     log_df = pd.DataFrame(data)
-    columns = ['Time Stamp', 'Log Level', 'Line Number',
-               'File Name', 'Function Name', 'Message']
+    columns = ["Time stamp", "Log Level", "line number",
+               "file name", "function name", "message"]
     log_df.columns = columns
 
-    new_log = log_df.drop(columns=['Log Level', 'Line Number',
-                                   'File Name', 'Function Name'], axis=1)
+    log_df["log_message"] = log_df['Time stamp'].astype(
+        str) + ":$" + log_df["message"]
+    
 
-    return new_log
+    return log_df[["log_message"]]

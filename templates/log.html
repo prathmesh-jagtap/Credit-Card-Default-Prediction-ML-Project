@@ -44,26 +44,30 @@
     <!-- ====== Body Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">Log Details</span><br><br>
-				<table class="table table-light table-hover">
-					<tr>
-						{% for header in context['log'].columns|safe %}
-						<th>{{ header }}</th>
-						{% endfor %}
-					</tr>
-					{% for row in context['log'].values|safe %}
-					<tr>
-						{% for cell in row %}
-						<td>{{ cell }}</td>
-						{% endfor %}
-					</tr>
-					{% endfor %}
-				</table>
+        <div class="ud-about-wrapper-2 wow fadeInUp" style="padding: 70px;" data-wow-delay=".2s">
+<!--          <div class="ud-about-content-wrapper">-->
+            <div class="ud-about-content-2">
+              <span class="tag-2">Log Details</span><br><br>
+				<div class="row"  style="--bs-gutter-x: 0; border: groove #276AE0">
+                    <div class="table-responsive" style="max-height: 500px; overflow: scroll; position: sticky; top: 0;" >
+                        <table class="table table-light table-hover table-borderless" >
+                            <tr>
+                                {% for header in context['log'].columns %}
+                                <th>{{ header }}</th>
+                                {% endfor %}
+                            </tr>
+                            {% for row in context['log'].values %}
+                            <tr>
+                                {% for cell in row %}
+                                <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+				</div>
             </div>
-          </div>
+<!--          </div>-->
         </div>
       </div>
     </section>

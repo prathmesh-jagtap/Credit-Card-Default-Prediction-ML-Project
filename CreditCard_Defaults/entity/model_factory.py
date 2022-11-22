@@ -34,10 +34,14 @@ BestModel = namedtuple("BestModel", ["model_serial_number",
                                      "best_score", ])
 
 MetricInfoArtifact = namedtuple("MetricInfoArtifact",
-                                ["model_name", "model_object",
-                                 "train_accuracy_score", "test_accuracy_score",
-                                 "train_accuracy", "test_accuracy",
-                                 "model_accuracy", "index_number"])
+                                ["model_name", 
+                                 "model_object",
+                                 "train_accuracy_score", 
+                                 "test_accuracy_score",
+                                 "train_f1score", 
+                                 "test_f1score",
+                                 "model_accuracy", 
+                                 "index_number"])
 
 
 def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train: np.ndarray,
@@ -54,8 +58,8 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
     return
     It retured a named tuple
     MetricInfoArtifact = namedtuple("MetricInfo",
-                                ["model_name", "model_object", "train_f1_score", "test_f1_score", "train_accuracy",
-                                 "test_accuracy", "model_accuracy", "index_number"])
+                                ["model_name", "model_object", "train_accuracy_score", "test_accuracy_score", "train_f1score",
+                                 "test_f1score", "model_accuracy", "index_number"])
     """
     try:
         # model_list = [model.best_model for model in model_list]
