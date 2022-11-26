@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 import os
 import pandas as pd
+import numpy as np
 from CreditCard_Defaults.constant import get_current_time_stamp
 
 LOG_DIR = "logs"
@@ -30,13 +31,11 @@ def get_log_dataframe(file_path):
         for line in log_file.readlines():
             data.append(line.split("^;"))
 
-    log_df = pd.DataFrame(data)
-    columns = ["Time stamp", "Log Level", "line number",
-               "file name", "function name", "message"]
-    log_df.columns = columns
-
-    log_df["log_message"] = log_df['Time stamp'].astype(
-        str) + ":$" + log_df["message"]
+    log_df = pd.DataFrame(data, columns=None, index=None)
+    # columns = ["Time stamp", "Log Level", "line number", "file name", "function name", "message"]
+    # log_df.columns = columns
     
+    # log_df.dropna(how='any', inplace=True)
+    # log_df["log_message"] = log_df['Time stamp'].astype(str) + ":$" + log_df["message"]
 
-    return log_df[["log_message"]]
+    return log_df

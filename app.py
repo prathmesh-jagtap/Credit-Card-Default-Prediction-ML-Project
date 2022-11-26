@@ -36,7 +36,7 @@ def index():
 
 
 @app.route("/artifact", defaults={'req_path': f'{PIPELINE_FOLDER_NAME}'})
-@app.route('/artifact/<path:req_path>', methods=['POST', 'GET'])
+@app.route('/artifact/<path:req_path>')
 def render_artifact_dir(req_path):
     makedirs(PIPELINE_FOLDER_NAME, exist_ok=True)
 
@@ -46,7 +46,7 @@ def render_artifact_dir(req_path):
     print(abs_path)
     # return 404 if path doesn't exist
     if not path.exists(abs_path):
-        return render_template("404.html")
+        return abort(404)
 
     # check if path is a file and serve
     if path.isfile(abs_path):
@@ -233,7 +233,8 @@ def render_log_dir(req_path):
     # Check if path is a file and serve
     if path.isfile(abs_path):
         log_df = get_log_dataframe(abs_path)
-        context = {"log": log_df}
+        context = {"log": log_df
+                   }
         return render_template('log.html', context=context)
 
     # Show directory contents
