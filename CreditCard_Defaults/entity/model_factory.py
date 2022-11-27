@@ -67,7 +67,7 @@ def evaluate_classification_model(model_list: list, X_train: np.ndarray, y_train
         metric_info_artifact = None
         for model in model_list:
             # getting model name based on model object
-            model_name = type(model).__name__
+            model_name = str(model)
             logging.info(
                 f"{'>>'*30} Started evaluating model: [{type(model).__name__}] {'<<'*30}")
 

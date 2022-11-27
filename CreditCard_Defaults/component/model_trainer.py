@@ -110,7 +110,6 @@ class ModelTrainer:
             model_trainer_artifact = ModelTrainerArtifact(is_trained=True,
                                                           message="Model Trained successfully",
                                                           trained_model_file_path=trained_model_file_path,
-                                                          model_name = metric_info.model_name,
                                                           train_accuracy_score=metric_info.train_accuracy_score,
                                                           test_accuracy_score=metric_info.test_accuracy_score,
                                                           train_accuracy=metric_info.train_f1score,

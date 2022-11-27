@@ -31,11 +31,11 @@ def get_log_dataframe(file_path):
         for line in log_file.readlines():
             data.append(line.split("^;"))
 
-    log_df = pd.DataFrame(data, columns=None, index=None)
+    # log_df = pd.DataFrame(data, columns=None, index=None)
     # columns = ["Time stamp", "Log Level", "line number", "file name", "function name", "message"]
     # log_df.columns = columns
     
     # log_df.dropna(how='any', inplace=True)
     # log_df["log_message"] = log_df['Time stamp'].astype(str) + ":$" + log_df["message"]
 
-    return log_df
+    return data

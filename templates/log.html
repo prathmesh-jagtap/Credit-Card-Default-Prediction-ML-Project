@@ -54,9 +54,9 @@
                             <tr>
                                 <th></th>
                             </tr>
-                            {% for row in context['log'].values %}
+                            {% for row in context['log'] %}
                             <tr>
-								{% for cell in row %}
+								{% for cell in row -%}
                                 <td>{{ cell|safe }}</td>
 								{% endfor %}
                             </tr>

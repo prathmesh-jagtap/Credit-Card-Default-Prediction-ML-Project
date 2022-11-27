@@ -27,7 +27,6 @@ ModelTrainerArtifact = namedtuple("ModelTrainerArtifact",
                                   ["is_trained",
                                    "message",
                                    "trained_model_file_path",
-                                   "model_name"
                                    "train_accuracy_score",
                                    "test_accuracy_score",
                                    "train_accuracy",
