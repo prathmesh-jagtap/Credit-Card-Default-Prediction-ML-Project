@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--{% extends "index.html" %}-->
 <html lang="en">
     <head>
     <meta charset="UTF-8" />
@@ -51,11 +50,25 @@
         <!-- ====== Header Start ====== -->
         {% include "header.html" %}
         <!-- ====== Header End ====== -->
+		
+		<!-- ====== Banner Start ====== -->
+        <section class="ud-page-banner">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="ud-banner-content">
+                  <h1>Predict</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ====== Banner End ====== -->
 
         <section class="ud-login">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-12">
                         <div class="ud-login-wrapper">
                             <!-- form -->
                             <form class="ud-login-form" action="{{ url_for('predict') }}" method="post">
@@ -412,9 +425,12 @@
                                 <div class="ud-form-group">
                                     <input type="number" class="form-control" name="PAY_AMT6" placeholder="Amount of previous payment in Sixth month">
                                 </div>
+								
+								<div class="ud-form-group">
+                                  <button type="submit" class="ud-main-btn">Predict Credict Card Defaulter</button>
+                                </div>
 
                             </form>
-                            <button type="submit" class="btn">Predict Credict Card Defaulter</button>
                        </div>
                     </div>
 
@@ -458,9 +474,9 @@
             </div>
         </section>
 
-          <!-- ====== Footer Start ====== -->
-          {% include "footer.html" %}
-          <!-- ====== Footer End ====== -->
+      <!-- ====== Footer Start ====== -->
+      {% include "footer.html" %}
+      <!-- ====== Footer End ====== -->
 	  
 	  <!-- ====== Back To Top Start ====== -->
       <a href="javascript:void(0)" class="back-to-top">
@@ -468,11 +484,11 @@
       </a> 
 	  <!-- ====== Back To Top End ====== -->
 		
-	<!-- ====== All Javascript Files ====== -->
+	  <!-- ====== All Javascript Files ====== -->
       <script src="../static/js/bootstrap.bundle.min.js"></script>
       <script src="../static/js/wow.min.js"></script>
       <script src="../static/js/main.js"></script>
-      <script src="../static/js/text_animation.js"></script>
+<!--      <script src="../static/js/text_animation.js"></script>-->
       <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
