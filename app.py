@@ -96,7 +96,7 @@ def train():
 
     experiment_df = pipeline.get_experiments_status()
     context = {
-        "experiments": experiment_df, 
+        "experiments": experiment_df,
         "message": message
     }
     return render_template("train.html", context=context)
@@ -111,16 +111,16 @@ def predict():
 
     if request.method == 'POST':
         LIMIT_BAL = float(request.form['LIMIT_BAL'])
-        GENDER = float(request.form['GENDER'])
-        EDUCATION = float(request.form['EDUCATION'])
-        MARRIAGE = float(request.form['MARRIAGE'])
+        GENDER = int(request.form['GENDER'])
+        EDUCATION = int(request.form['EDUCATION'])
+        MARRIAGE = int(request.form['MARRIAGE'])
         AGE = int(request.form['AGE'])
-        PAY_1 = float(request.form['PAY_1'])
-        PAY_2 = float(request.form['PAY_2'])
-        PAY_3 = float(request.form['PAY_3'])
-        PAY_4 = float(request.form['PAY_4'])
-        PAY_5 = float(request.form['PAY_5'])
-        PAY_6 = float(request.form['PAY_6'])
+        PAY_1 = int(request.form['PAY_1'])
+        PAY_2 = int(request.form['PAY_2'])
+        PAY_3 = int(request.form['PAY_3'])
+        PAY_4 = int(request.form['PAY_4'])
+        PAY_5 = int(request.form['PAY_5'])
+        PAY_6 = int(request.form['PAY_6'])
         BILL_AMT1 = float(request.form['BILL_AMT1'])
         BILL_AMT2 = float(request.form['BILL_AMT2'])
         BILL_AMT3 = float(request.form['BILL_AMT3'])
@@ -161,6 +161,7 @@ def predict():
         creditcard_df = CreditCard_Defaults_data.get_credit_input_data_frame()
         creditcard_predictor = CreditPredictor(model_dir=MODEL_DIR)
         creditcard_defaults = creditcard_predictor.predict(X=creditcard_df)
+        print(f"creditcard_defaults :- {creditcard_defaults}")
         context = {
             CREDIT_CARD_DATA_KEY: CreditCard_Defaults_data.get_credit_data_as_dict(),
             CREDIT_CARD_DEFAULTS_VALUE_KEY: creditcard_defaults,

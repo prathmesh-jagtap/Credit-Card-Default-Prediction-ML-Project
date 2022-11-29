@@ -1,7 +1,7 @@
 import os
 import sys
 import pandas as pd
-
+from CreditCard_Defaults.logger import logging
 from CreditCard_Defaults.exception import DefaultException
 from CreditCard_Defaults.util.util import load_object
 
@@ -73,29 +73,30 @@ class CreditCardData:
     def get_credit_data_as_dict(self):
         try:
             input_data = {
-                'LIMIT_BAL': [self.LIMIT_BAL],
-                'GENDER': [self.GENDER],
-                'EDUCATION': [self.EDUCATION],
-                'MARRIAGE': [self.MARRIAGE],
-                'AGE': [self.AGE],
-                'PAY_1': [self.PAY_1],
-                'PAY_2': [self.PAY_2],
-                'PAY_3': [self.PAY_3],
-                'PAY_4': [self.PAY_4],
-                'PAY_5': [self.PAY_5],
-                'PAY_6': [self.PAY_6],
-                'BILL_AMT1': [self.BILL_AMT1],
-                'BILL_AMT2': [self.BILL_AMT2],
-                'BILL_AMT3': [self.BILL_AMT3],
-                'BILL_AMT4': [self.BILL_AMT4],
-                'BILL_AMT5': [self.BILL_AMT5],
-                'BILL_AMT6': [self.BILL_AMT6],
-                'PAY_AMT1': [self.PAY_AMT1],
-                'PAY_AMT2': [self.PAY_AMT2],
-                'PAY_AMT3': [self.PAY_AMT3],
-                'PAY_AMT4': [self.PAY_AMT4],
-                'PAY_AMT5': [self.PAY_AMT5],
-                'PAY_AMT6': [self.PAY_AMT6]}
+                'LIMIT_BAL': self.LIMIT_BAL,
+                'GENDER': self.GENDER,
+                'EDUCATION': self.EDUCATION,
+                'MARRIAGE': self.MARRIAGE,
+                'AGE': self.AGE,
+                'PAY_1': self.PAY_1,
+                'PAY_2': self.PAY_2,
+                'PAY_3': self.PAY_3,
+                'PAY_4': self.PAY_4,
+                'PAY_5': self.PAY_5,
+                'PAY_6': self.PAY_6,
+                'BILL_AMT1': self.BILL_AMT1,
+                'BILL_AMT2': self.BILL_AMT2,
+                'BILL_AMT3': self.BILL_AMT3,
+                'BILL_AMT4': self.BILL_AMT4,
+                'BILL_AMT5': self.BILL_AMT5,
+                'BILL_AMT6': self.BILL_AMT6,
+                'PAY_AMT1': self.PAY_AMT1,
+                'PAY_AMT2': self.PAY_AMT2,
+                'PAY_AMT3': self.PAY_AMT3,
+                'PAY_AMT4': self.PAY_AMT4,
+                'PAY_AMT5': self.PAY_AMT5,
+                'PAY_AMT6': self.PAY_AMT6
+            }
             return input_data
         except Exception as e:
             raise DefaultException(e, sys)
@@ -116,6 +117,7 @@ class CreditPredictor:
                 self.model_dir, f"{max(folder_name)}")
             file_name = os.listdir(latest_model_dir)[0]
             latest_model_path = os.path.join(latest_model_dir, file_name)
+            logging.info(f"latest_model_path :{latest_model_path}")
             return latest_model_path
         except Exception as e:
             raise DefaultException(e, sys) from e
@@ -124,6 +126,7 @@ class CreditPredictor:
         try:
             model_path = self.get_latest_model_path()
             model = load_object(file_path=model_path)
+            logging.info(f"model :{model}")
             credit_card_dafaulter = model.predict(X)
             return credit_card_dafaulter[0]
         except Exception as e:
