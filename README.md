@@ -216,8 +216,8 @@ Then add a title and description to your pull request that explains your preciou
 To deploy this project or heroku we need 3 information
 
 1. HEROKU_EMAIL = <jagtaprathmesh19@gmail.com>
-2. HEROKU_API_KEY = <Locatied in settings of your heroku account>
-3. HEROKU_APP_NAME = <Name of your heroku app >
+2. HEROKU_API_KEY = < Locatied in settings of your heroku account >
+3. HEROKU_APP_NAME = < Name of your heroku app >
 
 Build Docker Image
 
