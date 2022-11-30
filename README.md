@@ -274,4 +274,8 @@ Here are some related projects
 
 - [About me](https://github.com/prathmesh-jagtap)
 
+## Feedback
+
+If you have any feedback, please reach out to us at [Feedback](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/issues/new/choose)
+
 ## Thnaks for Reading :pray:
