@@ -246,17 +246,16 @@ docker stop <container_id>
 ```
 
 ## Demo
-*****
 
-<<<<<<< HEAD
-![Application uI](Documents\gif.gif)
-=======
+---
+
 <div align="center">
 <h4>Application UI</h4>
 </div>
 
 ![Application UI](Documents\gif.gif)
->>>>>>> 2ecf11b27b7a4d9096137eda28ddc9a675afd44a
+
+![Home Page](Documents\home.png)
 
 ## Related
 
