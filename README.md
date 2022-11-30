@@ -22,6 +22,13 @@
 
 ## Table of Content
 
+- [Project Description](#about-project)
+- [Languages/Framework Used](#tech-stack)
+- [Project Setup](#project-setup)
+- [How to use](#installation)
+- [CI/CD](#deployment)
+- [Demo](#demo)
+
 ## About Project:
 
 Financial threats are displaying a trend about the credit risk of commercial banks as the incredible improvement in the financial industry has arisen. In this way, one of the
