@@ -10,15 +10,15 @@
 
 # Aim of the Project
 
-> #### To predict whether a credit card customer is a defaulter, using numerical and Categorical Data.
->
-> #### Apply ML and DL Models to predict the severity and probability of the Credit Card Defaulter.
->
-> #### Create a Wonderful UI for this project using Front End Languages and Frameworks (Like Bootstrap, HTML/CSS, JavaScript).
->
-> #### Create the Backend using Flask Framework.
->
-> #### Deploy on Cloud and make this wonderful project available to public
+#### > To predict whether a credit card customer is a defaulter, using numerical and Categorical Data.
+
+#### > Apply ML and DL Models to predict the severity and probability of the Credit Card Defaulter.
+
+#### > Create a Wonderful UI for this project using Front End Languages and Frameworks (Like Bootstrap, HTML/CSS, JavaScript).
+
+#### > Create the Backend using Flask Framework.
+
+#### > Deploy on Cloud and make this wonderful project available to public
 
 ## Table of Content
 
