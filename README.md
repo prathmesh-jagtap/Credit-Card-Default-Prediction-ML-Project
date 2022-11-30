@@ -261,6 +261,8 @@ Here are some related projects
 
 [Housing Price Prediction](https://github.com/prathmesh-jagtap/Housing-Price-Prediction-ML-Project)
 
-## Authors
+## Authors :person:
 
 - [About me](https://github.com/prathmesh-jagtap)
+
+## Thnaks for Reading :pray:
