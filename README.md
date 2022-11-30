@@ -127,20 +127,20 @@ See the changes using
 
 ```sh
 $ git remote -v
-origin    https://github.com/Your_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (fetch)
-origin    https://github.com/Your_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (push)
-upstream  https://github.com/Remote_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (fetch)
-upstream  https://github.com/Remote_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (push)
+origin    https://github.com/Your_Username/Credit-Card-Default-Prediction-ML-Project.git (fetch)
+origin    https://github.com/Your_Username/Credit-Card-Default-Prediction-ML-Project.git (push)
+upstream  https://github.com/Remote_Username/Credit-Card-Default-Prediction-ML-Project.git (fetch)
+upstream  https://github.com/Remote_Username/Credit-Card-Default-Prediction-ML-Project.git (push)
 ```
 
 `In your case, you will see`
 
 ```sh
 $ git remote -V
-origin    https://github.com/Your_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (fetch)
-origin    https://github.com/Your_Username/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (push)
-upstream  https://github.com/manan-bedi2908/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (fetch)
-upstream  https://github.com/manan-bedi2908/https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git (push)
+origin    https://github.com/Your_Username/Credit-Card-Default-Prediction-ML-Project.git (fetch)
+origin    https://github.com/Your_Username/Credit-Card-Default-Prediction-ML-Project.git (push)
+upstream  https://github.com/manan-bedi2908/Credit-Card-Default-Prediction-ML-Project.git (fetch)
+upstream  https://github.com/manan-bedi2908/Credit-Card-Default-Prediction-ML-Project.git (push)
 ```
 
 ### 4. Sync it :recycle:
