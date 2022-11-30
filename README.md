@@ -28,6 +28,7 @@
 - [How to use](#installation)
 - [CI/CD](#deployment)
 - [Demo](#demo)
+- [Notebook](#notebok)
 
 ## About Project:
 
@@ -277,5 +278,9 @@ Here are some related projects
 ## Feedback
 
 If you have any feedback, please reach out to us at [Feedback](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/issues/new/choose)
+
+## Notebok
+
+<button><a target="_blank" href="https://colab.research.google.com/drive/1Cb9WRRHQiv2cRq41syHkyP3iInFNgSMu?usp=sharing"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a></button>
 
 ## Thnaks for Reading :pray:
