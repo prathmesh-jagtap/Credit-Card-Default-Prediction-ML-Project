@@ -253,9 +253,7 @@ docker stop <container_id>
 <h4>Application UI</h4>
 </div>
 
-![Application UI](Documents\gif.gif)
-
-![Home Page](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/blob/main/Documents/home.png)
+![Application UI](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/blob/main/Documents/gif.gif)
 
 ## Related
 
