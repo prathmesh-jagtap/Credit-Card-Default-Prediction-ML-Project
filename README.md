@@ -281,6 +281,6 @@ If you have any feedback, please reach out to us at [Feedback](https://github.co
 
 ## Notebok
 
-<button><a target="_blank" href="https://colab.research.google.com/drive/1Cb9WRRHQiv2cRq41syHkyP3iInFNgSMu?usp=sharing"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a></button>
+<button style="border:blue solid;background:white;"><a target="_blank" href="https://colab.research.google.com/drive/1Cb9WRRHQiv2cRq41syHkyP3iInFNgSMu?usp=sharing"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" /> Run in Google Colab</a></button>
 
 ## Thnaks for Reading :pray:
