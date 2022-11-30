@@ -255,7 +255,7 @@ docker stop <container_id>
 
 ![Application UI](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/blob/main/Documents/gif.gif)
 
-![Try Now](https://creditcard-defaults-prediction.herokuapp.com/)
+[Try Now](https://creditcard-defaults-prediction.herokuapp.com/)
 
 ## Related
 
