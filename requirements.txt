@@ -48,7 +48,7 @@ Pygments
 pyparsing
 python-dateutil
 pytz
-PyYAML
+PyYAML==5.1
 pyzmq
 requests
 scikit-learn
