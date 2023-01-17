@@ -68,3 +68,4 @@ websocket-client
 Werkzeug
 wincertstore
 zipp
+gunicorn 
