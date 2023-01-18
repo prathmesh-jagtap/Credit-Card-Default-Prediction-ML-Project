@@ -9,7 +9,7 @@ cycler
 dataclasses
 debugpy
 decorator
-# -e # git+https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git@6c1364bf4f99a2781fb51eb83252cdae74a771a3#egg=default_predictor
+-e # git+https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project.git@6c1364bf4f99a2781fb51eb83252cdae74a771a3#egg=default_predictor
 dill
 entrypoints
 evidently
@@ -20,7 +20,7 @@ gunicorn
 idna
 importlib-metadata
 ipykernel
-# ipython==8.4.0
+ipython
 itsdangerous
 jedi
 Jinja2

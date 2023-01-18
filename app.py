@@ -2,6 +2,7 @@ import json
 from os import getcwd, listdir, makedirs, path
 from time import sleep
 from flask import Flask, abort, render_template, request, send_file
+from flask_cors import CORS
 
 from CreditCard_Defaults.config.configuration import Configuration
 from CreditCard_Defaults.constant import (CONFIG_DIR, ROOT_DIR,
@@ -25,6 +26,7 @@ CREDIT_CARD_DATA_KEY = "CreditCard_Defaults_data"
 CREDIT_CARD_DEFAULTS_VALUE_KEY = "DEFAULTS"
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -250,4 +252,4 @@ def render_log_dir(req_path):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, port=8080)
