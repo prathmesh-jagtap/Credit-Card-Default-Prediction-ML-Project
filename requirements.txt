@@ -15,6 +15,7 @@ entrypoints
 evidently
 executing
 Flask
+flask-cors
 fonttools
 gunicorn
 idna
