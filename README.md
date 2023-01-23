@@ -1,4 +1,4 @@
-# CREDICT CARD DEFAULT PREDICTION
+# [CREDICT CARD DEFAULT PREDICTION](http://ec2-3-91-47-24.compute-1.amazonaws.com:8080/)
 
 > Predicts weather the credit card holder is DEFAULT or not.
 
@@ -263,7 +263,7 @@ docker stop <container_id>
 
 ![Application UI](https://github.com/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project/blob/main/Documents/gif.gif)
 
-[Try Now](https://creditcard-defaults-prediction.herokuapp.com/)
+[Try Now](http://ec2-3-91-47-24.compute-1.amazonaws.com:8080/)
 
 ## Related
 
