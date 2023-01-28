@@ -1,4 +1,5 @@
 <h1><a href="http://ec2-3-91-47-24.compute-1.amazonaws.com:8080/" title="Go to Default Predictor Website">CREDICT CARD DEFAULT PREDICTION</a><h1>
+
 > Predicts weather the credit card holder is DEFAULT or not.
 
 ![Issues](https://img.shields.io/github/issues/prathmesh-jagtap/Credit-Card-Default-Prediction-ML-Project)
@@ -9,15 +10,15 @@
 
 # Aim of the Project
 
-#### > To predict whether a credit card customer is a defaulter, using numerical and Categorical Data.
+> To predict whether a credit card customer is a defaulter, using numerical and Categorical Data.
 
-#### > Apply ML and DL Models to predict the severity and probability of the Credit Card Defaulter.
+> Apply ML and DL Models to predict the severity and probability of the Credit Card Defaulter.
 
-#### > Create a Wonderful UI for this project using Front End Languages and Frameworks (Like Bootstrap, HTML/CSS, JavaScript).
+> Create a Wonderful UI for this project using Front End Languages and Frameworks (Like Bootstrap, HTML/CSS, JavaScript).
 
-#### > Create the Backend using Flask Framework.
+> Create the Backend using Flask Framework.
 
-#### > Deploy on Cloud and make this wonderful project available to public
+> Deploy on Cloud and make this wonderful project available to public
 
 ## Table of Content
 
